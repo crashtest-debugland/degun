@@ -140,45 +140,70 @@ html #FAM #FAM-new-topic:hover {
 }
 
 html #FAM #FAM-tab-container {
-  height: 36px;
+  height: 40px;
   box-shadow: 0 3px 6px var(--zw-ombre, rgba(0, 0, 0, 0.25));
   z-index: 2;
 }
 
 html #FAM-tabs {
   width: auto;
-  height: 36px;
+  height: 30px;
   margin: 0 54px 0 26px;
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: var(--zw-accent) var(--zw-fond);
-  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 html #FAM-tabs::-webkit-scrollbar {
-  height: 5px;
-}
-
-html #FAM-tabs::-webkit-scrollbar-track {
-  background: var(--zw-fond);
-}
-
-html #FAM-tabs::-webkit-scrollbar-thumb {
-  background: var(--zw-accent);
+  display: none;
 }
 
 html #FAM-tabs:hover {
   overflow-x: auto;
 }
 
+html #FAM .qmnp-piste {
+  position: absolute;
+  left: 26px;
+  right: 54px;
+  bottom: 1px;
+  height: 9px;
+  background: var(--zw-fond);
+  border-top: 1px solid var(--zw-trait);
+  cursor: pointer;
+  touch-action: none;
+}
+
+html #FAM .qmnp-piste[hidden] {
+  display: none;
+}
+
+html #FAM .qmnp-curseur {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  min-width: 24px;
+  background: var(--zw-accent);
+  border-radius: 4px;
+  cursor: grab;
+}
+
+html #FAM .qmnp-piste:hover .qmnp-curseur,
+html #FAM .qmnp-curseur.prise {
+  background: var(--zw-encre);
+}
+
+html #FAM .qmnp-curseur.prise {
+  cursor: grabbing;
+}
+
 html #FAM #FAM-content {
-  height: calc(100% - 75px);
+  height: calc(100% - 79px);
   padding-top: 8px;
 }
 
 html #FAM #FAM-content.FAM-reply-open {
-  height: calc(100% - 116px);
+  height: calc(100% - 120px);
 }
 
 html #FAM #FAM-tab-container[style*="none"] + #FAM-content {
@@ -211,10 +236,10 @@ html #FAM .qmnp-onglet-fleche {
   top: 0;
   z-index: 3;
   width: 26px;
-  height: 36px;
+  height: 40px;
   padding: 0;
   color: var(--zw-encre);
-  font: 700 22px/34px var(--zw-texte);
+  font: 700 22px/38px var(--zw-texte);
   background: var(--zw-fond);
   border: 0;
   cursor: pointer;
@@ -242,13 +267,13 @@ html #FAM .qmnp-onglet-fleche:disabled {
 }
 
 html #FAM #FAM-tab-add {
-  height: 36px;
+  height: 40px;
   color: var(--zw-encre);
   background: var(--zw-fond);
 }
 
 html #FAM #FAM-tab-add i {
-  line-height: 36px;
+  line-height: 40px;
 }
 
 html #FAM-actions {
@@ -1209,16 +1234,15 @@ html[data-qmnp-tel="retro"] #FAM #FAM-tab-container {
   border-bottom: 2px solid var(--rt-encre);
 }
 
-html[data-qmnp-tel="retro"] #FAM-tabs {
-  scrollbar-color: var(--rt-encre) var(--rt-ecran);
-}
-
-html[data-qmnp-tel="retro"] #FAM-tabs::-webkit-scrollbar-track {
+html[data-qmnp-tel="retro"] #FAM .qmnp-piste {
   background: var(--rt-ecran);
+  border-top: 1px dashed var(--rt-pale);
 }
 
-html[data-qmnp-tel="retro"] #FAM-tabs::-webkit-scrollbar-thumb {
+html[data-qmnp-tel="retro"] #FAM .qmnp-curseur,
+html[data-qmnp-tel="retro"] #FAM .qmnp-piste:hover .qmnp-curseur {
   background: var(--rt-encre);
+  border-radius: 0;
 }
 
 html[data-qmnp-tel="retro"] #FAM-tab-container,
@@ -1292,6 +1316,12 @@ html[data-qmnp-tel="retro"] #FAM .FAM-chat-date {
   bottom: 9px;
   color: var(--rt-pale);
   font-size: 17px;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-tab,
+html[data-qmnp-tel="retro"] #FAM .FAM-tab.FAM-tab-active,
+html[data-qmnp-tel="retro"] #FAM .FAM-tab-name {
+  font-weight: 400;
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-tab-name {
