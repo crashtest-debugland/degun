@@ -72,6 +72,7 @@ html #FAM #zw-fam-signal {
 
 html #FAM-toolbar {
   position: relative;
+  z-index: 5;
   margin-top: 0;
 }
 
@@ -138,20 +139,71 @@ html #FAM #FAM-new-topic:hover {
   background: var(--zw-encre);
 }
 
+html #FAM #FAM-tab-container {
+  height: 36px;
+  box-shadow: 0 3px 6px var(--zw-ombre, rgba(0, 0, 0, 0.25));
+  z-index: 2;
+}
+
 html #FAM-tabs {
   width: auto;
+  height: 36px;
   margin: 0 54px 0 26px;
   overflow-x: auto;
-  scrollbar-width: none;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--zw-accent) var(--zw-fond);
   scroll-behavior: smooth;
 }
 
 html #FAM-tabs::-webkit-scrollbar {
-  display: none;
+  height: 5px;
+}
+
+html #FAM-tabs::-webkit-scrollbar-track {
+  background: var(--zw-fond);
+}
+
+html #FAM-tabs::-webkit-scrollbar-thumb {
+  background: var(--zw-accent);
 }
 
 html #FAM-tabs:hover {
   overflow-x: auto;
+}
+
+html #FAM #FAM-content {
+  height: calc(100% - 75px);
+  padding-top: 8px;
+}
+
+html #FAM #FAM-content.FAM-reply-open {
+  height: calc(100% - 116px);
+}
+
+html #FAM #FAM-tab-container[style*="none"] + #FAM-content {
+  height: calc(100% - 39px);
+}
+
+html #FAM #FAM-tab-container[style*="none"] + #FAM-content.FAM-reply-open {
+  height: calc(100% - 80px);
+}
+
+html #FAM .FAM-chat-icon .fa-stack-1x {
+  display: none;
+}
+
+html #FAM .FAM-chat-icon {
+  display: none;
+}
+
+html #FAM .FAM-chat:has(.FAM-new-post) {
+  box-shadow: inset 4px 0 0 var(--zw-accent);
+}
+
+html #FAM .FAM-chat:has(.FAM-new-post) .FAM-chat-title::after {
+  content: " •";
+  color: var(--zw-accent);
 }
 
 html #FAM .qmnp-onglet-fleche {
@@ -159,10 +211,10 @@ html #FAM .qmnp-onglet-fleche {
   top: 0;
   z-index: 3;
   width: 26px;
-  height: 30px;
+  height: 36px;
   padding: 0;
   color: var(--zw-encre);
-  font: 700 22px/28px var(--zw-texte);
+  font: 700 22px/34px var(--zw-texte);
   background: var(--zw-fond);
   border: 0;
   cursor: pointer;
@@ -190,8 +242,13 @@ html #FAM .qmnp-onglet-fleche:disabled {
 }
 
 html #FAM #FAM-tab-add {
+  height: 36px;
   color: var(--zw-encre);
   background: var(--zw-fond);
+}
+
+html #FAM #FAM-tab-add i {
+  line-height: 36px;
 }
 
 html #FAM-actions {
@@ -297,6 +354,10 @@ html #FAM .FAM-toolbar-button i:active {
 
 html #FAM .FAM-toolbar-button {
   font-size: 20px;
+}
+
+html #FAM #FAM-menu {
+  z-index: 10;
 }
 
 html #FAM-menu {
@@ -1143,6 +1204,153 @@ html[data-qmnp-tel="retro"] #FAM .FAM-block-option:hover {
   background: var(--rt-encre);
 }
 
+html[data-qmnp-tel="retro"] #FAM #FAM-tab-container {
+  box-shadow: none;
+  border-bottom: 2px solid var(--rt-encre);
+}
+
+html[data-qmnp-tel="retro"] #FAM-tabs {
+  scrollbar-color: var(--rt-encre) var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM-tabs::-webkit-scrollbar-track {
+  background: var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM-tabs::-webkit-scrollbar-thumb {
+  background: var(--rt-encre);
+}
+
+html[data-qmnp-tel="retro"] #FAM-tab-container,
+html[data-qmnp-tel="retro"] #FAM .FAM-tab {
+  color: var(--rt-pale);
+  background: var(--rt-ecran);
+  border-color: var(--rt-pale);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-tab.FAM-tab-active,
+html[data-qmnp-tel="retro"] #FAM .FAM-tab:hover {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-tab.FAM-tab-active::after {
+  background: var(--rt-encre);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat {
+  color: var(--rt-encre);
+  border-bottom: 1px dashed var(--rt-pale);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat:hover {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat:hover .FAM-chat-date {
+  color: var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat-avatar {
+  display: none;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat {
+  height: 62px;
+  padding: 0;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat-title,
+html[data-qmnp-tel="retro"] #FAM .FAM-chat-date {
+  padding: 0 12px;
+  font-family: var(--rt-pixel);
+  line-height: 1.1;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat-title {
+  top: 9px;
+  font-size: 21px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat-title::before {
+  content: "> ";
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat:has(.FAM-new-post) .FAM-chat-title::after {
+  content: " *";
+  color: inherit;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat:has(.FAM-new-post) {
+  box-shadow: none;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-chat-date {
+  bottom: 9px;
+  color: var(--rt-pale);
+  font-size: 17px;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-tab-name {
+  font-family: var(--rt-pixel);
+  font-size: 17px;
+  line-height: 30px;
+}
+
+html[data-qmnp-tel="retro"] #FAM-content {
+  background-color: var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-maintitle,
+html[data-qmnp-tel="retro"] #FAM .FAM-toolbar-button,
+html[data-qmnp-tel="retro"] #FAM .FAM-toolbar-button i:hover {
+  color: var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-maintitle {
+  margin: 0 auto;
+  width: 70%;
+  text-align: center;
+  font-family: var(--rt-pixel);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+html[data-qmnp-tel="retro"] #FAM-menu,
+html[data-qmnp-tel="retro"] #FAM-actions .FAM-dropdown {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+  border: 2px solid var(--rt-encre);
+  box-shadow: none;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-menu-option:hover,
+html[data-qmnp-tel="retro"] #FAM .FAM-block-option:hover {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+}
+
+html[data-qmnp-tel="retro"] #FAM #FAM-tab-container {
+  box-shadow: none;
+  border-bottom: 2px solid var(--rt-encre);
+}
+
+html[data-qmnp-tel="retro"] #FAM-tabs {
+  scrollbar-color: var(--rt-encre) var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM-tabs::-webkit-scrollbar-track {
+  background: var(--rt-ecran);
+}
+
+html[data-qmnp-tel="retro"] #FAM-tabs::-webkit-scrollbar-thumb {
+  background: var(--rt-encre);
+}
+
 html[data-qmnp-tel="retro"] #FAM-tab-container,
 html[data-qmnp-tel="retro"] #FAM .FAM-tab {
   color: var(--rt-pale);
@@ -1318,7 +1526,6 @@ html[data-qmnp-tel="retro"] #FAM .zw-fam-statut {
 
 html[data-qmnp-tel="retro"] #FAM .zw-fam-statut[data-etat="attente"] {
   color: var(--rt-encre);
-  animation: zw-rt-clignote 1.2s steps(2) infinite;
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-msg-actions {
