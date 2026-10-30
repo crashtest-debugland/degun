@@ -1,0 +1,1419 @@
+html #FAM {
+  --fam-coque: #24201C;
+  --fam-bord: #3A342E;
+  --fam-vis: #6B625A;
+  color: var(--zw-encre);
+  font-family: var(--zw-texte);
+  font-size: 14px;
+  width: 350px;
+  height: min(690px, calc(100vh - 90px));
+  min-width: 0;
+  min-height: 440px;
+  padding: 44px 14px 46px;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 50% 50%, var(--fam-vis) 0 2.5px, #15120F 3px 4px, transparent 4.5px) 9px 9px / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, var(--fam-vis) 0 2.5px, #15120F 3px 4px, transparent 4.5px) calc(100% - 9px) 9px / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, var(--fam-vis) 0 2.5px, #15120F 3px 4px, transparent 4.5px) 9px calc(100% - 9px) / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, var(--fam-vis) 0 2.5px, #15120F 3px 4px, transparent 4.5px) calc(100% - 9px) calc(100% - 9px) / 14px 14px no-repeat,
+    radial-gradient(circle at 50% 50%, #0A0908 0 2px, transparent 2.5px) 50% 10px / 70px 6px repeat-x,
+    radial-gradient(circle at 35% 35%, #4A5A66 0 1.5px, #0B0B0B 2.5px 5px, #2C2723 5.5px 6.5px, transparent 7px) 34px 14px / 16px 16px no-repeat,
+    linear-gradient(180deg, #2C2723, var(--fam-coque) 30%, var(--fam-coque) 70%, #1B1815);
+  border: 3px solid var(--fam-bord);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px #0E0C0A,
+    0 22px 60px var(--zw-ombre, rgba(0, 0, 0, 0.4));
+}
+
+html #FAM::before {
+  content: "";
+  position: absolute;
+  top: 120px;
+  right: -7px;
+  width: 4px;
+  height: 64px;
+  background: var(--fam-bord);
+  border-radius: 0 3px 3px 0;
+  box-shadow: 0 86px 0 var(--fam-bord);
+  pointer-events: none;
+}
+
+html #FAM::after {
+  content: "MISTRAL · R2";
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 10px;
+  color: #8A8076;
+  font-family: var(--zw-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  border: 1px solid #3A342E;
+  border-radius: 3px;
+  background: repeating-linear-gradient(90deg, transparent 0 3px, rgba(255, 255, 255, 0.03) 3px 4px);
+  pointer-events: none;
+}
+
+html #FAM #zw-fam-signal {
+  top: 18px;
+  left: 14px;
+  right: 14px;
+  height: 26px;
+  padding: 0 12px;
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border-radius: 8px 8px 0 0;
+  font-family: var(--zw-mono);
+}
+
+html #FAM-toolbar {
+  margin-top: 0;
+}
+
+html #FAM-actions {
+  border-radius: 0 0 8px 8px;
+}
+
+html #FAM a {
+  color: var(--zw-accent);
+}
+
+html #FAM a:hover,
+html #FAM a:active {
+  color: var(--zw-accent);
+  text-decoration: underline;
+}
+
+html #FAM-button {
+  color: var(--zw-surface);
+  background: var(--zw-accent);
+  width: 50px;
+  height: 50px;
+  left: 12px;
+  right: auto;
+  bottom: 10px;
+  font-size: 22px;
+  border: 3px solid #24201C;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px var(--zw-ombre, rgba(0, 0, 0, 0.3));
+  transition-property: left;
+}
+
+html #FAM-button i {
+  line-height: 44px;
+}
+
+html #FAM-button:hover,
+html #FAM-button:active {
+  color: var(--zw-surface);
+  background: var(--zw-encre);
+}
+
+html #FAM.FAM-fullscreen[data-hidden="false"] + #FAM-button {
+  left: auto;
+  width: 30px;
+  height: 30px;
+  color: var(--zw-accent);
+  background: transparent;
+  box-shadow: none;
+}
+
+html #FAM.FAM-fullscreen[data-hidden="false"] + #FAM-button i {
+  line-height: 30px;
+}
+
+html #FAM {
+  left: 12px;
+  right: auto;
+  bottom: 70px;
+  transition-property: left, bottom, opacity, visibility;
+}
+
+html #FAM.FAM-fullscreen {
+  left: 0;
+  padding: 0;
+  background: var(--zw-surface);
+  border-width: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+html #FAM.FAM-fullscreen::before,
+html #FAM.FAM-fullscreen::after,
+html #FAM.FAM-fullscreen #zw-fam-signal {
+  display: none;
+}
+
+html #FAM-toolbar {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border-bottom: 1px solid var(--zw-trait);
+  margin: 0;
+}
+
+html #FAM .FAM-maintitle {
+  width: auto;
+  margin: 0 44px 0 16px;
+  color: var(--zw-encre);
+  font-family: var(--zw-texte);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+}
+
+html #FAM #FAM-back:not([style*="none"]) ~ .FAM-maintitle {
+  margin-left: 44px;
+}
+
+html #FAM .FAM-toolbar-button,
+html #FAM .FAM-toolbar-button i:hover,
+html #FAM .FAM-toolbar-button i:active {
+  color: var(--zw-accent);
+}
+
+html #FAM .FAM-toolbar-button {
+  font-size: 20px;
+}
+
+html #FAM-menu {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border: 1px solid var(--zw-trait);
+  box-shadow: 0 12px 30px var(--zw-ombre, rgba(0, 0, 0, 0.3));
+}
+
+html #FAM .FAM-menu-option {
+  font-size: 22px;
+}
+
+html #FAM .FAM-menu-option:hover,
+html #FAM .FAM-menu-option:active {
+  color: var(--zw-accent);
+  background: var(--zw-teinte, var(--zw-sol));
+  opacity: 1;
+}
+
+html #FAM-tab-container {
+  background: var(--zw-fond);
+  border-bottom: 1px solid var(--zw-trait);
+}
+
+html #FAM .FAM-tab {
+  color: var(--zw-doux);
+  background: var(--zw-fond);
+  border-color: var(--zw-trait);
+}
+
+html #FAM .FAM-tab:hover,
+html #FAM .FAM-tab.FAM-tab-active {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+}
+
+html #FAM .FAM-tab.FAM-tab-active::after {
+  background: var(--zw-accent);
+  height: 3px;
+}
+
+html #FAM-tab-add {
+  border-left-color: var(--zw-trait);
+}
+
+html #FAM-tab-add:hover,
+html #FAM .FAM-tab-close:hover {
+  color: var(--zw-accent);
+}
+
+html #FAM .FAM-chat {
+  color: var(--zw-encre);
+  border-bottom: 1px solid var(--zw-trait);
+}
+
+html #FAM .FAM-chat:hover {
+  background: var(--zw-teinte, var(--zw-sol));
+}
+
+html #FAM .FAM-chat-title {
+  font-family: var(--zw-texte);
+  font-size: 14px;
+}
+
+html #FAM .FAM-chat-date {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 11px;
+}
+
+html #FAM .FAM-chat-avatar,
+html #FAM .FAM-chat-avatar img {
+  border-radius: 50%;
+}
+
+html #FAM .FAM-chat-icon .fa-circle {
+  color: var(--zw-trait);
+}
+
+html #FAM .FAM-chat-icon.FAM-new-post .fa-circle,
+html #FAM-new-topic .fa-circle,
+html #FAM-new-topic:hover .fa-circle,
+html #FAM-new-topic:active .fa-circle {
+  color: var(--zw-accent);
+}
+
+html #FAM .FAM-separator::after {
+  color: var(--zw-doux);
+}
+
+html #FAM .FAM-msg-avatar {
+  border: 2px solid var(--zw-trait);
+}
+
+html #FAM .FAM-msg-online .FAM-msg-avatar {
+  border-color: var(--zw-sur);
+}
+
+html #FAM .FAM-msg-name {
+  font-family: var(--zw-etiquette);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+html #FAM .FAM-msg-content {
+  color: var(--zw-encre);
+  background: var(--zw-teinte, var(--zw-sol));
+  border: 1px solid var(--zw-trait);
+  border-radius: 2px 8px 8px 8px;
+}
+
+html #FAM .FAM-msg-content::before {
+  display: none;
+}
+
+html #FAM .FAM-my-msg .FAM-msg-content {
+  color: var(--zw-surface);
+  background: var(--zw-accent);
+  border-color: var(--zw-accent);
+  border-radius: 8px 2px 8px 8px;
+}
+
+html #FAM .FAM-msg-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+html #FAM .FAM-msg-date {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 11px;
+}
+
+html #FAM .FAM-msg-error .FAM-msg-content {
+  color: var(--zw-surface);
+  background: var(--zw-contamine);
+  border-color: var(--zw-contamine);
+}
+
+html #FAM .FAM-msg-actions {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border: 1px solid var(--zw-trait);
+}
+
+html #FAM .FAM-codebox,
+html #FAM .FAM-spoiler {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border: 0;
+  border-left: 3px solid var(--zw-encre);
+  border-radius: 0;
+}
+
+html #FAM .FAM-codebox cite,
+html #FAM .FAM-codebox dt,
+html #FAM .FAM-spoiler dt {
+  color: var(--zw-doux);
+  font-family: var(--zw-etiquette);
+  font-size: 13px;
+  background: transparent;
+  border-bottom: 1px solid var(--zw-trait);
+}
+
+html #FAM .FAM-codebox cite a,
+html #FAM .FAM-codebox dt a {
+  color: var(--zw-doux) !important;
+}
+
+html #FAM .FAM-codebox code {
+  font-family: var(--zw-mono);
+  font-size: 12px;
+}
+
+html #FAM .FAM-msg-text .FAM-attachment tr {
+  background: var(--zw-surface);
+}
+
+html #FAM .FAM-msg-text .FAM-attachment td {
+  color: var(--zw-encre);
+}
+
+html #FAM-new-msg-notif {
+  color: var(--zw-surface);
+  background: var(--zw-accent);
+  font-family: var(--zw-etiquette);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+html #FAM-new-msg-divider {
+  color: var(--zw-accent);
+  font-family: var(--zw-etiquette);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+html #FAM-new-msg-divider::before,
+html #FAM-new-msg-divider::after {
+  background: var(--zw-accent);
+  height: 1px;
+}
+
+html #FAM-content {
+  background: var(--zw-fond);
+}
+
+html #FAM-actions {
+  background: var(--zw-surface);
+  border-top: 1px solid var(--zw-trait);
+}
+
+html #FAM-actions > button {
+  color: var(--zw-doux);
+  background: transparent;
+  border-left: 0;
+}
+
+html #FAM-actions > button:hover,
+html #FAM-actions > button:active {
+  color: var(--zw-accent);
+  background: var(--zw-teinte, var(--zw-sol));
+}
+
+html #FAM-actions > button#FAM-send {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  color: var(--zw-surface);
+  background: var(--zw-accent);
+  border-radius: 6px;
+  font-size: 15px;
+  vertical-align: top;
+}
+
+html #FAM-actions > button#FAM-send:hover {
+  color: var(--zw-surface);
+  background: var(--zw-encre);
+}
+
+html #FAM-attachment-total {
+  color: var(--zw-surface);
+  background: var(--zw-accent);
+  font-family: var(--zw-mono);
+  border-radius: 9px;
+}
+
+html #FAM-msg-container {
+  border-left: 0;
+}
+
+html #FAM #FAM-msg {
+  height: 32px;
+  margin-top: 4px;
+  padding: 6px 14px;
+  color: var(--zw-encre);
+  font-family: var(--zw-texte);
+  font-size: 13px;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  background: var(--zw-fond);
+  border: 1px solid var(--zw-trait);
+  border-radius: 6px;
+}
+
+html #FAM #FAM-msg::placeholder {
+  color: var(--zw-doux);
+}
+
+html #FAM-timeout-bar {
+  background: var(--zw-accent);
+  opacity: 0.25;
+}
+
+html #FAM-actions .FAM-dropdown {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border: 1px solid var(--zw-trait);
+  box-shadow: 0 -12px 30px var(--zw-ombre, rgba(0, 0, 0, 0.3));
+}
+
+html #FAM .FAM-dropdown-title {
+  color: var(--zw-barre-texte, var(--zw-surface));
+  background: var(--zw-barre, var(--zw-encre));
+  font-family: var(--zw-etiquette);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+html #FAM .FAM-block-option {
+  color: var(--zw-encre);
+  border-bottom: 1px solid var(--zw-trait);
+}
+
+html #FAM .FAM-block-option:hover,
+html #FAM .FAM-block-option:active {
+  color: var(--zw-accent);
+  background: var(--zw-teinte, var(--zw-sol));
+}
+
+html #FAM-attach-success {
+  color: var(--zw-surface);
+  background: var(--zw-sur);
+}
+
+html #FAM .FAM-button {
+  color: var(--zw-surface);
+  background: var(--zw-encre);
+  font-family: var(--zw-etiquette);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+}
+
+html #FAM .FAM-button:hover,
+html #FAM .FAM-button:active {
+  background: var(--zw-accent);
+}
+
+html #FAM .FAM-inputbox {
+  color: var(--zw-encre);
+  font-family: var(--zw-texte);
+  background: var(--zw-fond);
+  border: 1px solid var(--zw-trait);
+  border-radius: 0;
+}
+
+html #FAM .FAM-inputbox:hover {
+  border-color: var(--zw-doux);
+}
+
+html #FAM .FAM-inputbox:focus {
+  border-color: var(--zw-accent);
+}
+
+html #FAM .FAM-connected-buttons a {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border-color: var(--zw-trait);
+}
+
+html #FAM .FAM-connected-buttons a:hover,
+html #FAM .FAM-connected-buttons a:active {
+  background: var(--zw-teinte, var(--zw-sol));
+  border-color: var(--zw-doux);
+}
+
+html #FAM .FAM-title {
+  font-family: var(--zw-etiquette);
+  letter-spacing: 0.04em;
+}
+
+html #FAM .FAM-section-title {
+  color: var(--zw-encre);
+  font-family: var(--zw-etiquette);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--zw-encre);
+}
+
+html #FAM hr.FAM-hr {
+  border-top-color: var(--zw-trait);
+}
+
+html #FAM .FAM-list li::before {
+  background: var(--zw-accent);
+  border-radius: 0;
+}
+
+html #FAM .FAM-list li:hover::before {
+  background: var(--zw-encre);
+}
+
+html #FAM .FAM-border-box,
+html #FAM .FAM-attachment-thumb,
+html #FAM-version-card,
+html #FAM-search-results,
+html #FAM-profile-avatar {
+  border-color: var(--zw-trait);
+}
+
+html #FAM a.FAM-page-link,
+html #FAM .FAM-page-link {
+  color: var(--zw-encre);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  background: var(--zw-surface);
+  border: 1px solid var(--zw-trait);
+}
+
+html #FAM a.FAM-page-link:hover,
+html #FAM a.FAM-page-link:active {
+  color: var(--zw-surface);
+  background: var(--zw-accent);
+  border-color: var(--zw-accent);
+  text-decoration: none;
+}
+
+html #FAM b.FAM-page-link,
+html #FAM strong.FAM-page-link {
+  color: var(--zw-surface);
+  background: var(--zw-encre);
+}
+
+html #FAM .FAM-pagination {
+  border-bottom: 1px solid var(--zw-trait);
+}
+
+html #FAM .FAM-error {
+  color: var(--zw-contamine);
+}
+
+html #FAM #FAM-service-title a {
+  color: var(--zw-encre);
+}
+
+html #FAM #FAM-service-title b,
+html #FAM #FAM-service-title i,
+html #FAM #FAM-version-status-icon .fa-check-circle {
+  color: var(--zw-accent);
+}
+
+html #FAM #FAM-version-status-icon .fa-exclamation-circle {
+  color: var(--zw-contamine);
+}
+
+html #FAM-idle {
+  color: var(--zw-surface);
+  background: rgba(0, 0, 0, 0.7);
+  font-family: var(--zw-etiquette);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+html #FAM-media-viewer {
+  color: var(--zw-encre);
+  background: var(--zw-surface);
+  border-radius: 0;
+}
+
+html #FAM *::-webkit-scrollbar-track {
+  background-color: var(--zw-fond);
+}
+
+html #FAM *::-webkit-scrollbar-thumb {
+  background-color: var(--zw-trait);
+}
+
+html #FAM *::-webkit-scrollbar-thumb:hover,
+html #FAM *::-webkit-scrollbar-thumb:active {
+  background-color: var(--zw-doux);
+}
+
+@media (max-width: 800px) {
+  html #FAM[data-hidden="false"] {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  html #FAM[data-hidden="false"] {
+    background: var(--zw-surface);
+  }
+
+  html #FAM::before,
+  html #FAM::after {
+    display: none;
+  }
+
+  html #FAM[data-hidden="false"] + #FAM-button {
+    top: 7px;
+    left: auto;
+    right: 48px;
+    bottom: auto;
+    border-radius: 0;
+    width: 26px;
+    height: 26px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--zw-accent);
+  }
+
+  html #FAM[data-hidden="false"] + #FAM-button i {
+    line-height: 26px;
+  }
+}
+#FAM #zw-fam-signal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 18px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  cursor: help;
+}
+
+.zw-sb-heure {
+  flex: 1;
+}
+
+.zw-sb-reseau {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.zw-fam-barres {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 11px;
+}
+
+.zw-fam-barres i {
+  width: 3px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.zw-fam-barres i:nth-child(1) {
+  height: 25%;
+}
+
+.zw-fam-barres i:nth-child(2) {
+  height: 50%;
+}
+
+.zw-fam-barres i:nth-child(3) {
+  height: 75%;
+}
+
+.zw-fam-barres i:nth-child(4) {
+  height: 100%;
+}
+
+.zw-fam-barres i.on {
+  opacity: 1;
+}
+
+#zw-fam-signal[data-etat="instable"] .on {
+  animation: zw-fam-clignote 1.6s steps(2) infinite;
+}
+
+#zw-fam-signal[data-etat="coupe"] .zw-fam-reseau-txt {
+  text-decoration: line-through;
+}
+
+.zw-sb-batterie {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 11px;
+  padding: 1px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+}
+
+.zw-sb-batterie::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: -4px;
+  width: 2px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 0 1px 1px 0;
+}
+
+.zw-sb-batterie i {
+  display: block;
+  height: 100%;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+@keyframes zw-fam-clignote {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.zw-fam-statut {
+  clear: both;
+  margin-top: 2px;
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.FAM-my-msg .zw-fam-statut {
+  text-align: right;
+}
+
+.zw-fam-statut::before {
+  content: "✓✓ ";
+  font-style: normal;
+  letter-spacing: -0.15em;
+}
+
+.zw-fam-statut[data-etat="instable"]::before,
+.zw-fam-statut[data-etat="coupe"]::before {
+  content: "✓ ";
+}
+
+.zw-fam-statut[data-etat="attente"]::before {
+  content: "◷ ";
+}
+
+.zw-fam-statut[data-etat="attente"] {
+  opacity: 1;
+  font-weight: 700;
+}
+
+#FAM[data-zw-reseau="coupe"] #FAM-msg::placeholder {
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #zw-fam-signal .on {
+    animation: none;
+  }
+}
+
+@media (max-width: 800px) {
+  #FAM #zw-fam-signal {
+    display: none;
+  }
+}
+html[data-zw-phase="retro"] {
+  --rt-ecran: #B4C296;
+  --rt-encre: #1D2812;
+  --rt-pale: #55663A;
+  --rt-boitier: #2B302A;
+  --rt-pixel: "VT323", "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-zw-phase="retro"]:not([data-zw="jour"]) {
+    --rt-ecran: #0D170E;
+    --rt-encre: #86E694;
+    --rt-pale: #4A8A54;
+    --rt-boitier: #000000;
+  }
+}
+
+html[data-zw-phase="retro"][data-zw="nuit"] {
+  --rt-ecran: #0D170E;
+  --rt-encre: #86E694;
+  --rt-pale: #4A8A54;
+  --rt-boitier: #000000;
+}
+
+html[data-zw-phase="retro"] #FAM {
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 19px;
+  width: 320px;
+  padding: 26px 0 28px;
+  background: var(--rt-ecran);
+  border: 16px solid var(--rt-boitier);
+  border-bottom-width: 40px;
+  overflow: hidden;
+  border-radius: 34px 34px 56px 56px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--zw-trait), 0 22px 60px var(--zw-ombre, rgba(0, 0, 0, 0.4));
+}
+
+html[data-zw-phase="retro"] #FAM::before,
+html[data-zw-phase="retro"] #FAM::after {
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 50%;
+  height: 28px;
+  margin: 0;
+  padding: 0 12px;
+  box-sizing: border-box;
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+  border: 0;
+  border-top: 2px solid var(--rt-encre);
+  border-radius: 0;
+  font-family: var(--rt-pixel);
+  font-size: 19px;
+  line-height: 26px;
+  letter-spacing: 0;
+  top: auto;
+  right: auto;
+  transform: none;
+  box-shadow: none;
+  opacity: 1;
+  pointer-events: none;
+}
+
+html[data-zw-phase="retro"] #FAM::before {
+  content: "Options";
+  left: 0;
+}
+
+html[data-zw-phase="retro"] #FAM::after {
+  content: "Retour";
+  left: 50%;
+  text-align: right;
+}
+
+html[data-zw-phase="retro"] #FAM #zw-fam-signal {
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0;
+  height: 26px;
+  padding: 0 10px;
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+  border-bottom: 1px dashed var(--rt-pale);
+  font-family: var(--rt-pixel);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+html[data-zw-phase="retro"] #FAM .zw-sb-reseau {
+  order: 1;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+html[data-zw-phase="retro"] #FAM .zw-sb-heure {
+  order: 2;
+  flex: 1;
+  text-align: center;
+}
+
+html[data-zw-phase="retro"] #FAM .zw-sb-batterie {
+  order: 3;
+  flex: none;
+  margin-left: auto;
+  border-radius: 0;
+  border-width: 2px;
+}
+
+html[data-zw-phase="retro"] #FAM .zw-sb-batterie i {
+  border-radius: 0;
+  background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 5px);
+}
+
+html[data-zw-phase="retro"] #FAM .zw-sb-batterie::after {
+  border-radius: 0;
+}
+
+html[data-zw-phase="retro"] #FAM * {
+  border-radius: 0;
+}
+
+html[data-zw-phase="retro"] #FAM a,
+html[data-zw-phase="retro"] #FAM a:hover,
+html[data-zw-phase="retro"] #FAM a:active {
+  color: var(--rt-encre);
+  text-decoration: underline;
+}
+
+html[data-zw-phase="retro"] #FAM-button {
+  color: var(--rt-ecran);
+  background: var(--rt-boitier);
+  border-radius: 10px 10px 16px 16px;
+}
+
+html[data-zw-phase="retro"] #FAM-button:hover {
+  color: var(--rt-boitier);
+  background: var(--rt-ecran);
+}
+
+html[data-zw-phase="retro"] #FAM-toolbar {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+  border-bottom: 0;
+}
+
+html[data-zw-phase="retro"] #FAM-content {
+  background-color: var(--rt-ecran);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-maintitle,
+html[data-zw-phase="retro"] #FAM .FAM-toolbar-button,
+html[data-zw-phase="retro"] #FAM .FAM-toolbar-button i:hover {
+  color: var(--rt-ecran);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-maintitle {
+  margin: 0 auto;
+  width: 70%;
+  text-align: center;
+  font-family: var(--rt-pixel);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+html[data-zw-phase="retro"] #FAM-menu,
+html[data-zw-phase="retro"] #FAM-actions .FAM-dropdown {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+  border: 2px solid var(--rt-encre);
+  box-shadow: none;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-menu-option:hover,
+html[data-zw-phase="retro"] #FAM .FAM-block-option:hover {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM-tab-container,
+html[data-zw-phase="retro"] #FAM .FAM-tab {
+  color: var(--rt-pale);
+  background: var(--rt-ecran);
+  border-color: var(--rt-pale);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-tab.FAM-tab-active,
+html[data-zw-phase="retro"] #FAM .FAM-tab:hover {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-tab.FAM-tab-active::after {
+  background: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat {
+  color: var(--rt-encre);
+  border-bottom: 1px dashed var(--rt-pale);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat:hover {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat:hover .FAM-chat-date {
+  color: var(--rt-ecran);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-avatar {
+  display: none;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-title,
+html[data-zw-phase="retro"] #FAM .FAM-chat-date {
+  padding-left: 34px;
+  font-family: var(--rt-pixel);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-title {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-date {
+  color: var(--rt-pale);
+  font-size: 16px;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-icon {
+  left: 10px;
+  top: 50%;
+  bottom: auto;
+  margin-top: -14px;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-icon .fa-circle {
+  color: transparent;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-icon.FAM-new-post .fa-circle,
+html[data-zw-phase="retro"] #FAM-new-topic .fa-circle {
+  color: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-chat-icon .fa-inverse,
+html[data-zw-phase="retro"] #FAM .FAM-chat-icon .fa-stack-1x {
+  color: var(--rt-pale);
+}
+
+html[data-zw-phase="retro"] #FAM-content {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.035) 2px 3px),
+    var(--rt-ecran);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg {
+  padding: 8px 12px;
+  border-bottom: 1px dashed var(--rt-pale);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-avatar {
+  display: none;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-box,
+html[data-zw-phase="retro"] #FAM .FAM-my-msg .FAM-msg-box {
+  float: none;
+  width: 100%;
+  padding: 0;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-name {
+  height: auto;
+  padding: 0;
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-name * {
+  color: var(--rt-encre) !important;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-name::before {
+  content: "< ";
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-my-msg .FAM-msg-name {
+  display: block;
+  text-align: right;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-my-msg .FAM-msg-name::before {
+  content: "MOI >";
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-my-msg .FAM-msg-name > * {
+  display: none;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-content,
+html[data-zw-phase="retro"] #FAM .FAM-my-msg .FAM-msg-content {
+  float: none;
+  max-width: 100%;
+  min-height: 0;
+  margin: 2px 0;
+  padding: 0;
+  color: var(--rt-encre);
+  background: transparent;
+  border: 0;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-my-msg .FAM-msg-content {
+  text-align: right;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-content::before {
+  display: none;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-text {
+  font-family: var(--rt-pixel);
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-text img {
+  filter: grayscale(1) contrast(1.4);
+  mix-blend-mode: multiply;
+  image-rendering: pixelated;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-date,
+html[data-zw-phase="retro"] #FAM .zw-fam-statut {
+  color: var(--rt-pale);
+  font-family: var(--rt-pixel);
+  font-size: 16px;
+  font-style: normal;
+  opacity: 1;
+}
+
+html[data-zw-phase="retro"] #FAM .zw-fam-statut {
+  text-transform: uppercase;
+}
+
+html[data-zw-phase="retro"] #FAM .zw-fam-statut[data-etat="attente"] {
+  color: var(--rt-encre);
+  animation: zw-rt-clignote 1.2s steps(2) infinite;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-actions {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+  border: 1px solid var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-msg-error .FAM-msg-content {
+  color: var(--rt-encre);
+  background: transparent;
+  text-decoration: line-through;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-codebox,
+html[data-zw-phase="retro"] #FAM .FAM-spoiler {
+  color: var(--rt-encre);
+  background: transparent;
+  border: 0;
+  border-left: 2px solid var(--rt-pale);
+  text-align: left;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-codebox cite,
+html[data-zw-phase="retro"] #FAM .FAM-codebox dt,
+html[data-zw-phase="retro"] #FAM .FAM-spoiler dt {
+  color: var(--rt-pale);
+  font-family: var(--rt-pixel);
+  font-size: 16px;
+  border-bottom: 1px dashed var(--rt-pale);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-codebox cite a,
+html[data-zw-phase="retro"] #FAM .FAM-codebox dt a {
+  color: var(--rt-pale) !important;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-codebox code {
+  font-family: var(--rt-pixel);
+  font-size: 18px;
+}
+
+html[data-zw-phase="retro"] #FAM-new-msg-notif {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 18px;
+}
+
+html[data-zw-phase="retro"] #FAM-new-msg-divider {
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 18px;
+}
+
+html[data-zw-phase="retro"] #FAM-new-msg-divider::before,
+html[data-zw-phase="retro"] #FAM-new-msg-divider::after {
+  background: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM-actions {
+  border-radius: 0;
+  background: var(--rt-ecran);
+  border-top: 2px solid var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM-actions > button {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+  border-left: 2px solid var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM-actions > button:hover,
+html[data-zw-phase="retro"] #FAM-actions > button#FAM-send,
+html[data-zw-phase="retro"] #FAM-actions > button#FAM-send:hover {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+  border-left-color: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM-actions > button#FAM-send {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 0;
+}
+
+html[data-zw-phase="retro"] #FAM-attachment-total {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+  font-family: var(--rt-pixel);
+}
+
+html[data-zw-phase="retro"] #FAM-msg-container {
+  border-left: 0;
+}
+
+html[data-zw-phase="retro"] #FAM #FAM-msg {
+  height: 40px;
+  margin: 0;
+  padding: 7px 10px;
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 19px;
+  line-height: 24px;
+  background: var(--rt-ecran);
+  border: 0;
+  overflow: hidden;
+  caret-color: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM #FAM-msg::placeholder {
+  color: var(--rt-pale);
+  font-weight: 400;
+}
+
+html[data-zw-phase="retro"] #FAM-timeout-bar {
+  background: var(--rt-encre);
+  opacity: 0.2;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-dropdown-title {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-weight: 400;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-block-option {
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  border-bottom: 1px dashed var(--rt-pale);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-button {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 19px;
+  font-weight: 400;
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-button:hover {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
+  outline: 2px solid var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-inputbox {
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 19px;
+  background: var(--rt-ecran);
+  border: 2px solid var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-title,
+html[data-zw-phase="retro"] #FAM .FAM-section-title {
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-weight: 400;
+  border-bottom-color: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-list li::before {
+  background: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM a.FAM-page-link,
+html[data-zw-phase="retro"] #FAM .FAM-page-link {
+  color: var(--rt-encre);
+  font-family: var(--rt-pixel);
+  font-size: 18px;
+  background: var(--rt-ecran);
+  border: 1px solid var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM b.FAM-page-link,
+html[data-zw-phase="retro"] #FAM strong.FAM-page-link,
+html[data-zw-phase="retro"] #FAM a.FAM-page-link:hover {
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .FAM-border-box,
+html[data-zw-phase="retro"] #FAM .FAM-attachment-thumb,
+html[data-zw-phase="retro"] #FAM-search-results,
+html[data-zw-phase="retro"] #FAM-version-card,
+html[data-zw-phase="retro"] #FAM .FAM-pagination,
+html[data-zw-phase="retro"] #FAM hr.FAM-hr {
+  border-color: var(--rt-pale);
+}
+
+html[data-zw-phase="retro"] #FAM *::-webkit-scrollbar-track {
+  background-color: var(--rt-ecran);
+}
+
+html[data-zw-phase="retro"] #FAM *::-webkit-scrollbar-thumb,
+html[data-zw-phase="retro"] #FAM *::-webkit-scrollbar-thumb:hover {
+  background-color: var(--rt-encre);
+}
+
+html[data-zw-phase="retro"] #FAM .zw-fam-barres i {
+  width: 4px;
+}
+
+@keyframes zw-rt-clignote {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-zw-phase="retro"] #FAM .zw-fam-statut[data-etat="attente"] {
+    animation: none;
+  }
+}
+
+@media (max-width: 800px) {
+  html[data-zw-phase="retro"] #FAM[data-hidden="false"] {
+    width: 100%;
+    padding: 0;
+    border-width: 0;
+    border-radius: 0;
+  }
+
+  html[data-zw-phase="retro"] #FAM::before,
+  html[data-zw-phase="retro"] #FAM::after {
+    display: none;
+  }
+}
