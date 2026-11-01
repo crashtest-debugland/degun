@@ -1988,7 +1988,7 @@ body:has(#fa_toolbar) .zw-barre {
 }
 
 #wrap:not(:has(.zw-corps)) #page-body {
-  max-width: 930px;
+  max-width: 1200px;
   margin: 20px auto 0;
   padding: 20px;
   background: var(--zw-surface);
