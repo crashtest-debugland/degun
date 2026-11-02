@@ -5009,7 +5009,7 @@ body#sce_smilies_body option {
 }
 
 .zw-pf-off .zw-pf-av img {
-  filter: grayscale(1) contrast(1.2) brightness(0.55);
+  filter: grayscale(0) contrast(1) brightness(0.75);
 }
 
 .zw-pf-off .zw-pf-viseur {
