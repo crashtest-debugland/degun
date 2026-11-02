@@ -5443,3 +5443,1738 @@ body#sce_smilies_body option {
   line-height: inherit;
   border: 0;
 }
+
+
+/* ====================================================================
+   13 · SUJETS — BANDEAU DE SURVEILLANCE ET REGISTRE DES RÉACTIONS
+   ==================================================================== */
+
+/* --- 13.1 · En-tête du sujet, navigation -------------------------- */
+
+.zw-sujet .sub-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--zw-encre);
+}
+
+.zw-sujet .sub-header-info {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.zw-sujet .page-title {
+  margin: 0 0 4px;
+  padding: 0;
+  border: 0;
+  font-family: var(--zw-titre);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.zw-sujet .page-title a {
+  color: var(--zw-encre);
+  text-decoration: none;
+}
+
+.zw-sujet .sub-header-path {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.zw-sujet .sub-header-path a {
+  color: var(--zw-doux);
+}
+
+.zw-sujet .sub-header-path a:hover {
+  color: var(--zw-accent);
+}
+
+.zw-sujet .sub-header-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.zw-sujet .sub-header-buttons .button1,
+.zw-sujet .topic-actions-buttons .button1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  color: var(--zw-surface);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: var(--zw-accent);
+  border: 0;
+}
+
+.zw-sujet .sub-header-buttons .button1:hover,
+.zw-sujet .topic-actions-buttons .button1:hover {
+  color: var(--zw-surface);
+  background: var(--zw-encre);
+}
+
+.zw-sujet .poster-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 6px 0 8px;
+}
+
+.zw-sujet .poster {
+  line-height: 0;
+}
+
+.zw-sujet .poster span {
+  display: block;
+  width: 26px;
+  height: 26px;
+  background: var(--poster-avatar) center / cover no-repeat var(--zw-sol);
+  border: 1px solid var(--zw-trait);
+}
+
+.zw-sujet .poster-count {
+  margin-left: 6px;
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.zw-sujet .topic-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0 0 12px;
+  font-size: 13px;
+}
+
+.zw-sujet .topic-actions:not(:has(.pagination, a, select, img)) {
+  display: none;
+}
+
+.zw-sujet .topic-actions .pagination {
+  float: none;
+}
+
+.zw-sujet .topic-actions-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  float: none;
+  margin-left: auto;
+}
+
+.zw-sujet .topic-actions-buttons > a,
+.zw-sujet .topic-actions-buttons > span {
+  margin: 0;
+}
+
+.zw-sujet .topic-actions-buttons > a:not(.button1) {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zw-sujet .topic-actions-buttons > a:not(.button1):hover {
+  color: var(--zw-accent);
+}
+
+.zw-sujet .topic-actions-buttons .button1 img {
+  max-height: 16px;
+  filter: invert(1);
+}
+
+.zw-sujet #addthis-toolbar {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zw-sujet-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 0 0 18px;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.zw-sujet-nav a {
+  color: var(--zw-doux);
+}
+
+.zw-sujet-nav a:hover {
+  color: var(--zw-accent);
+  text-decoration: none;
+}
+
+.zw-sujet-prec::before {
+  content: "‹ ";
+}
+
+.zw-sujet-suiv::after {
+  content: " ›";
+}
+
+.zw-sujet-bas::before {
+  content: "↓ ";
+}
+
+.zw-sujet-haut::before {
+  content: "↑ ";
+}
+
+.zw-sujet-nav.bottom {
+  margin: 0 0 14px;
+}
+
+.zw-sujet #first-post-br {
+  height: 0;
+  margin: 0 0 30px;
+  border: 0;
+  border-top: 1px dashed var(--zw-trait);
+}
+
+/* --- 13.2 · Carte du message et couleurs de groupe ---------------- */
+
+.zw-m {
+  --g: var(--zw-g0);
+  --gn: #A39A94;
+  margin: 0 0 30px;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.zw-m.post-group-3 {
+  --g: var(--zw-g1);
+  --gn: #E0574A;
+}
+
+.zw-m.post-group-4 {
+  --g: var(--zw-g2);
+  --gn: #7FA3BD;
+}
+
+.zw-m.post-group-5 {
+  --g: var(--zw-g3);
+  --gn: #9DB07A;
+}
+
+.zw-m.post-group-6 {
+  --g: var(--zw-g4);
+  --gn: #D29A4A;
+}
+
+.zw-m.post-group-7 {
+  --g: var(--zw-g5);
+  --gn: #B49BC2;
+}
+
+.zw-m-ancre {
+  position: relative;
+  top: -70px;
+  width: 1px;
+}
+
+.zw-m-carte {
+  background: var(--zw-surface);
+  border: 1px solid var(--zw-trait);
+  border-top: 5px solid var(--g);
+  box-shadow: 0 6px 18px var(--zw-ombre);
+}
+
+.zw-m-cache {
+  margin: 0 0 30px;
+  padding: 10px 14px;
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  text-align: center;
+  background: var(--zw-teinte);
+  border: 1px dashed var(--zw-trait);
+}
+
+.zw-m-cache p {
+  margin: 0;
+}
+
+/* --- 13.3 · Bandeau : caméra Icon, pseudo, onglets, statut -------- */
+
+.zw-m-bandeau {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  padding: 12px 18px;
+  color: var(--zw-ecran-texte);
+  background: var(--zw-ecran);
+}
+
+.zw-m-icone {
+  position: relative;
+  flex: none;
+  width: 92px;
+  height: 92px;
+  margin: -6px 0;
+  overflow: hidden;
+  background: var(--zw-ecran-in);
+  border: 2px solid var(--zw-ecran-trait);
+}
+
+.zw-m-sans-icone .zw-m-icone {
+  display: none;
+}
+
+.zw-m-icone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.zw-m-icone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.65));
+  pointer-events: none;
+}
+
+.zw-m-hud {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  right: 6px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 0;
+  color: #DCD8D4;
+  font-family: var(--zw-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px #000;
+}
+
+.zw-m-icone .zw-m-hud {
+  top: 4px;
+  left: 5px;
+  right: 5px;
+  font-size: 10px;
+}
+
+.zw-m-rec {
+  color: #8A8076;
+}
+
+.zw-m-rec::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.zw-m-rec::after {
+  content: "Off";
+}
+
+.zw-m.online .zw-m-rec {
+  color: #E0574A;
+}
+
+.zw-m.online .zw-m-rec::after {
+  content: "Rec";
+}
+
+.zw-m-qui {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.zw-m-nom {
+  text-align: left;
+  font-family: var(--zw-titre);
+  font-size: 32px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.zw-m-nom a {
+  text-decoration: none;
+}
+
+.zw-m-nom strong {
+  font-weight: 400;
+}
+
+.zw-m-nom span,
+.zw-m-nom a {
+  color: var(--gn) !important;
+}
+
+.zw-m-rang {
+  margin: 2px 0 0;
+  text-align: left;
+  color: var(--zw-ecran-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.zw-m-rang img {
+  max-height: 20px;
+  vertical-align: middle;
+}
+
+.zw-m-tw {
+  display: flex;
+  gap: 6px;
+}
+
+.zw-m-tw summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  color: var(--zw-ecran-texte);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--zw-ecran-in);
+  border: 1px solid var(--zw-ecran-trait);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.zw-m-tw summary::-webkit-details-marker {
+  display: none;
+}
+
+.zw-m-tw summary i {
+  color: #E0574A;
+  font-size: 15px;
+}
+
+.zw-m-warn summary i {
+  color: #D29A4A;
+}
+
+.zw-m-tw summary::after {
+  content: "+";
+  color: var(--zw-ecran-doux);
+}
+
+.zw-m-tw details[open] summary {
+  color: var(--zw-ecran);
+  background: var(--zw-ecran-texte);
+  border-color: var(--zw-ecran-texte);
+}
+
+.zw-m-tw details[open] summary::after {
+  content: "−";
+  color: inherit;
+}
+
+.zw-m-tw-txt {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 12px 18px 14px;
+  color: var(--zw-encre);
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--zw-teinte);
+  border-bottom: 1px solid var(--zw-trait);
+  box-shadow: 0 8px 16px var(--zw-ombre);
+}
+
+.zw-m-tw-txt b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--zw-accent);
+  font-family: var(--zw-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.zw-m-etat {
+  display: grid;
+  justify-items: end;
+  gap: 3px;
+  color: var(--zw-ecran-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.zw-m-statut::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  vertical-align: 1px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.zw-m-statut::after {
+  content: "Hors ligne";
+}
+
+.zw-m.online .zw-m-statut {
+  color: #9DB07A;
+}
+
+.zw-m.online .zw-m-statut::after {
+  content: "En ligne";
+}
+
+/* --- 13.4 · Corps : actions, texte, signature --------------------- */
+
+.zw-m-corps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 224px;
+}
+
+.zw-m-principal {
+  min-width: 0;
+  padding: 14px 22px 20px;
+}
+
+.zw-m-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--zw-trait);
+}
+
+.zw-m-quand {
+  min-width: 0;
+}
+
+.zw-m .zw-m-sujet {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.zw-m .zw-m-sujet a {
+  color: var(--zw-encre);
+}
+
+.zw-m .zw-m-sujet img {
+  max-height: 16px;
+  vertical-align: -2px;
+}
+
+.zw-m .zw-m-date {
+  margin: 2px 0 0;
+  padding: 0;
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  border: 0;
+}
+
+.zw-m-outils {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.zw-m-outils li {
+  display: block;
+}
+
+.zw-m-outils li:has(> a[href=""]),
+.zw-m-outils li:has(> span[onclick=""]),
+.zw-m-outils li:not(:has(a, span, img)) {
+  display: none;
+}
+
+.zw-m-outils a,
+.zw-m-outils span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  color: var(--zw-doux);
+  font-size: 16px;
+  text-decoration: none;
+  background: var(--zw-fond);
+  border: 1px solid var(--zw-trait);
+  cursor: pointer;
+}
+
+.zw-m-outils a:hover,
+.zw-m-outils span:hover {
+  color: var(--zw-surface);
+  text-decoration: none;
+  background: var(--zw-accent);
+  border-color: var(--zw-accent);
+}
+
+.zw-m-outils i {
+  color: var(--zw-accent);
+}
+
+.zw-m-outils a:hover i,
+.zw-m-outils span:hover i {
+  color: var(--zw-surface);
+}
+
+.zw-m-outils img {
+  max-height: 16px;
+}
+
+.zw-m .zw-m-texte {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.zw-m .zw-m-texte .content {
+  line-height: inherit;
+}
+
+.zw-m .edited-message:not(:empty) {
+  margin-top: 14px;
+  color: var(--zw-doux);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.zw-m .signature_div {
+  margin-top: 18px;
+  padding-top: 10px;
+  color: var(--zw-doux);
+  font-size: 13px;
+  border-top: 1px dashed var(--zw-trait);
+}
+
+/* --- 13.5 · Colonne profil : avatar 200 × 320, champs, liens ------ */
+
+.zw-m .zw-m-cote {
+  float: none;
+  width: auto;
+  padding: 12px;
+  color: var(--zw-ecran-texte);
+  font-size: 14px;
+  text-align: left;
+  background: var(--zw-ecran-in);
+  border: 0;
+}
+
+.zw-m-cote-colle {
+  position: sticky;
+  top: 76px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+body:has(#fa_toolbar) .zw-m-cote-colle {
+  top: 118px;
+}
+
+.zw-m .zw-m-flux {
+  position: relative;
+  flex: none;
+  width: 200px;
+  height: 320px;
+  overflow: hidden;
+  background: var(--zw-ecran);
+}
+
+.zw-m .zw-m-flux img {
+  display: block;
+  width: 200px !important;
+  height: 320px !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+.zw-m-champs-titre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 4px;
+  color: var(--gn);
+  font-family: var(--zw-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.zw-m-champs-titre::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--gn);
+}
+
+.zw-m-liste {
+  max-height: 260px;
+  margin: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gn) transparent;
+}
+
+.zw-m-liste > div {
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--zw-ecran-trait);
+}
+
+.zw-m-liste > div:last-child {
+  border-bottom: 0;
+}
+
+.zw-m-liste dt,
+.zw-m-champs .label {
+  display: block;
+  color: var(--zw-ecran-doux);
+  font-family: var(--zw-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.zw-m-liste dt::before {
+  content: "▸ ";
+  color: var(--gn);
+}
+
+.zw-m-liste dd {
+  margin: 0;
+  color: var(--zw-papier);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.zw-m-champs-vide,
+.zw-m-rpg:empty,
+.zw-m .award_more:empty {
+  display: none;
+}
+
+.zw-m-champs a,
+.zw-m-rpg a {
+  color: #E0574A;
+}
+
+.zw-m .zw-m-insignes {
+  float: none;
+  margin: 0;
+}
+
+.zw-m .zw-m-liens {
+  display: flex;
+  gap: 4px;
+}
+
+.zw-m .zw-m-liens a {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--gn) 45%, var(--zw-ecran-trait));
+}
+
+.zw-m .zw-m-liens a:hover {
+  background: color-mix(in srgb, var(--gn) 25%, transparent);
+  border-color: var(--gn);
+}
+
+.zw-m .zw-m-liens img {
+  max-height: 16px;
+  filter: grayscale(1) invert(0.85);
+}
+
+.zw-m .zw-m-liens a:hover img {
+  filter: grayscale(1) invert(1);
+}
+
+/* --- 13.6 · Registre détaché : j'aime / je n'aime pas ------------- */
+
+.zw-m .zw-m-registre {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 4px 6px;
+  margin: 0 18px;
+  padding: 10px 14px;
+  background-color: var(--zw-teinte);
+  background-image: repeating-linear-gradient(-45deg, transparent 0 10px, rgba(0, 0, 0, 0.025) 10px 20px);
+  border: 1px solid var(--zw-trait);
+  border-top: 0;
+}
+
+.zw-m-registre .rep-button {
+  grid-row: 1 / span 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  color: var(--zw-doux);
+  font: 12px var(--zw-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--zw-fond);
+  border: 1px solid var(--zw-trait);
+  cursor: pointer;
+}
+
+.zw-m-registre .rep-button:hover {
+  color: var(--zw-accent);
+  border-color: var(--zw-accent);
+}
+
+.zw-m-registre .rep-nb {
+  color: var(--zw-encre);
+}
+
+.zw-m-registre .fa_like_list,
+.zw-m-registre .fa_dislike_list,
+.zw-m-registre::after {
+  grid-column: 3;
+  margin: 0 0 0 10px;
+  padding-left: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-left: 1px dashed var(--zw-trait);
+}
+
+.zw-m-registre .fa_like_list,
+.zw-m-registre::after {
+  grid-row: 1;
+}
+
+.zw-m-registre .fa_dislike_list {
+  grid-row: 2;
+}
+
+.zw-m-registre .fa_like_list::before,
+.zw-m-registre .fa_dislike_list::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+
+.zw-m-registre .fa_like_list::before {
+  background: var(--zw-sur);
+}
+
+.zw-m-registre .fa_dislike_list::before {
+  background: var(--zw-accent);
+}
+
+.zw-m-registre a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.zw-m-registre:not(:has(.fa_like_list:not([style*="none"]), .fa_dislike_list:not([style*="none"])))::after {
+  content: "Aucune réaction pour l'instant.";
+  color: var(--zw-doux);
+}
+
+/* --- 13.7 · Réponse rapide, outils du bas de page ----------------- */
+
+.zw-rapide {
+  margin: 30px 0 24px;
+  text-align: left;
+}
+
+.zw-rapide * {
+  text-align: inherit;
+}
+
+.zw-rapide form,
+.zw-rapide .panel,
+.zw-rapide .inner {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.zw-rapide .h3,
+.zw-rapide h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 0;
+  font-family: var(--zw-titre);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  border: 0;
+}
+
+.zw-rapide .h3::after,
+.zw-rapide h3::after {
+  content: "";
+  flex: 1;
+  height: 3px;
+  background: var(--zw-encre);
+}
+
+.zw-rapide #textarea_content {
+  width: 100% !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.zw-rapide .sceditor-container {
+  margin: 0;
+}
+
+.zw-rapide form > div[style*="text-align"] {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0 !important;
+  text-align: right !important;
+}
+
+.zw-rapide .sceditor-container iframe,
+.zw-rapide .sceditor-container textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100%;
+  min-height: 220px;
+  margin: 0 !important;
+}
+
+.zw-rapide .sceditor-container textarea {
+  padding: 10px 12px;
+}
+
+.zw-rapide .submit-buttons,
+.zw-rapide fieldset:has(input[type="submit"]) {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+  text-align: right;
+}
+
+.zw-sujet .jumpbox,
+.zw-sujet .quickmod {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zw-sujet .jumpbox select,
+.zw-sujet .quickmod select {
+  font-family: var(--zw-texte);
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.zw-sujet .jumpbox .button2,
+.zw-sujet .quickmod .button2 {
+  padding: 7px 14px;
+  color: var(--zw-surface);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  background: var(--zw-encre);
+  border: 1px solid var(--zw-encre);
+}
+
+.zw-sujet .jumpbox .button2:hover,
+.zw-sujet .quickmod .button2:hover {
+  background: var(--zw-accent);
+  border-color: var(--zw-accent);
+}
+
+.zw-sujet p.right {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 20px;
+}
+
+.zw-sujet p.right img {
+  opacity: 0.75;
+}
+
+.zw-sujet p.right a:hover img {
+  opacity: 1;
+}
+
+.zw-sujet .block {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  font-size: 14px;
+  background: var(--zw-teinte);
+  border: 1px solid var(--zw-trait);
+}
+
+.zw-sujet .block .h3 {
+  margin: 0 0 8px;
+  padding: 0;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 0;
+}
+
+.zw-corps-sujet .zw-principal {
+  padding: 20px;
+  background: var(--zw-surface);
+  border: 1px solid var(--zw-trait);
+}
+ 
+@media (max-width: 1000px) {
+  .zw-corps-sujet .zw-cote {
+    display: none;
+  }
+}
+ 
+@media (max-width: 640px) {
+  .zw-corps-sujet {
+    margin-top: 0;
+    padding: 0;
+  }
+ 
+  .zw-corps-sujet .zw-principal {
+    padding: 12px;
+    border: 0;
+  }
+}
+
+/* --- 13.8 · Sujets — mobile (≤ 760 px) ---------------------------- */
+
+@media (max-width: 760px) {
+  .zw-sujet .page-title {
+    font-size: 28px;
+  }
+
+  .zw-m-corps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .zw-m .zw-m-cote {
+    order: -1;
+  }
+
+  .zw-m-cote-colle {
+    position: static;
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .zw-m .zw-m-flux {
+    grid-row: span 4;
+  }
+
+  .zw-m-icone {
+    width: 76px;
+    height: 76px;
+  }
+
+  .zw-m-icone .zw-m-hud {
+    white-space: nowrap;
+  }
+
+  .zw-m-icone .zw-m-rec::after {
+    content: none;
+  }
+
+  .zw-m-qui {
+    flex: 1 1 0;
+  }
+
+  .zw-m-tw {
+    flex-basis: 100%;
+  }
+
+  .zw-m-etat {
+    justify-items: start;
+  }
+
+  .zw-m .zw-m-registre {
+    grid-template-columns: auto minmax(0, 1fr);
+    margin: 0 8px;
+  }
+
+  .zw-m-registre .rep-button {
+    grid-row: auto;
+  }
+
+  .zw-m-registre .fa_like_list,
+  .zw-m-registre .fa_dislike_list,
+  .zw-m-registre::after {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    margin: 6px 0 0;
+    padding: 6px 0 0;
+    border-left: 0;
+    border-top: 1px dashed var(--zw-trait);
+  }
+}
+
+@media (max-width: 480px) {
+  .zw-m-cote-colle {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .zw-m-cote-colle > * {
+    width: 100%;
+  }
+
+  .zw-m-cote-colle > .zw-m-flux {
+    width: 200px;
+  }
+}
+
+/* ====================================================================
+   14 · PAGES DE FORUM — LISTE DES SUJETS
+   ==================================================================== */
+
+/* --- 14.1 · En-tête du forum, description, recherche -------------- */
+
+.zw-corps-forum .sub-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 24px 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--zw-encre);
+}
+/* ====================================================================
+   14 · PAGES DE FORUM — LISTE DES SUJETS
+   ==================================================================== */
+
+/* --- 14.1 · En-tête du forum, description, recherche -------------- */
+
+.zw-corps-forum .sub-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 24px 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--zw-encre);
+}
+
+.zw-corps-forum .sub-header-info {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.zw-corps-forum .page-title {
+  margin: 0 0 4px;
+  padding: 0;
+  font-family: var(--zw-titre);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+  border: 0;
+}
+
+.zw-corps-forum .page-title a {
+  color: var(--zw-encre);
+  text-decoration: none;
+}
+
+.zw-corps-forum .sub-header-path {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.zw-corps-forum .sub-header-path a {
+  color: var(--zw-doux);
+}
+
+.zw-corps-forum .sub-header-path a:hover {
+  color: var(--zw-accent);
+}
+
+.zw-corps-forum .sub-header-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.zw-corps-forum .search-box form {
+  display: flex;
+}
+
+.zw-corps-forum .search-box input {
+  width: 180px;
+  padding: 7px 10px;
+  font-size: 14px;
+}
+
+.zw-corps-forum .search-box button {
+  padding: 0 10px;
+  color: var(--zw-surface);
+  background: var(--zw-encre);
+  border: 1px solid var(--zw-encre);
+  cursor: pointer;
+}
+
+.zw-corps-forum .button1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  color: var(--zw-surface);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: var(--zw-accent);
+  border: 0;
+}
+
+.zw-corps-forum .button1:hover {
+  color: var(--zw-surface);
+  text-decoration: none;
+  background: var(--zw-encre);
+}
+
+.zw-corps-forum #page-desc {
+  position: relative;
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  background: var(--zw-teinte);
+  border: 1px solid var(--zw-trait);
+  border-left: 3px solid var(--zw-accent);
+}
+
+.zw-corps-forum #page-desc:has(.zw-visuel) {
+  min-height: 190px;
+  padding-left: 300px;
+}
+
+.zw-corps-forum #page-desc .zw-visuel {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.zw-corps-forum .page-desc-content > div {
+  max-height: 190px;
+  overflow-y: auto;
+  padding: 14px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--zw-accent) transparent;
+}
+
+/* --- 14.2 · Actions, pagination, tri ------------------------------ */
+
+.zw-corps-forum .topic-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0 0 12px;
+  font-size: 13px;
+}
+
+.zw-corps-forum .topic-actions::after {
+  content: none;
+}
+
+.zw-corps-forum .topic-actions .pagination {
+  float: none;
+}
+
+.zw-corps-forum .topic-actions-buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  float: none;
+  margin-left: auto;
+}
+
+.zw-corps-forum .topic-actions-buttons > a:not(.button1),
+.zw-corps-forum #sort-btn {
+  margin: 0;
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.zw-corps-forum .topic-actions-buttons > a:not(.button1):hover,
+.zw-corps-forum #sort-btn:hover {
+  color: var(--zw-accent);
+  text-decoration: none;
+}
+
+.zw-corps-forum .topic-actions-buttons i {
+  margin-right: 5px;
+}
+
+.zw-corps-forum #sort-box {
+  position: relative;
+}
+
+.zw-corps-forum .sort-form {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  z-index: 5;
+  display: none;
+  width: 220px;
+  padding: 12px 14px;
+  font-size: 13px;
+  background: var(--zw-surface);
+  border: 1px solid var(--zw-trait);
+  box-shadow: 0 8px 20px var(--zw-ombre);
+}
+
+.zw-corps-forum #sort-btn.expanded + .sort-form {
+  display: block;
+}
+
+.zw-corps-forum .sort-form .h3 {
+  margin: 0 0 8px;
+  padding: 0;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 0;
+}
+
+.zw-corps-forum .sort-form select {
+  width: 100%;
+}
+
+.zw-corps-forum .sort-form input[type="submit"] {
+  padding: 6px 12px;
+  color: var(--zw-surface);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--zw-encre);
+  border: 0;
+  cursor: pointer;
+}
+
+/* --- 14.3 · Liste des sujets : registre --------------------------- */
+
+.zw-corps-forum .forumbg {
+  margin: 0 0 24px;
+  background: none;
+  border: 0;
+}
+
+.zw-corps-forum ul.topiclist dl.icon {
+  background-image: none !important;
+}
+
+.zw-corps-forum ul.topiclist dt,
+.zw-corps-forum ul.topiclist dd {
+  padding: 0;
+}
+
+.zw-corps-forum li.header {
+  color: var(--zw-surface);
+  background: var(--zw-encre);
+}
+
+.zw-corps-forum li.header dl {
+  padding: 8px 14px;
+}
+
+.zw-corps-forum li.header dt,
+.zw-corps-forum li.header dd.dterm {
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+}
+
+.zw-corps-forum li.header dd:not(.dterm) {
+  display: none;
+}
+
+.zw-corps-forum ul.bg_none {
+  border: 1px solid var(--zw-trait);
+  border-top: 0;
+}
+
+.zw-corps-forum li.row {
+  border-left: 4px solid transparent;
+}
+
+.zw-corps-forum li.row:has(dl[style*="unread"]) {
+  border-left-color: var(--zw-accent);
+}
+
+.zw-corps-forum li.row:has(dl[style*="locked"]) {
+  opacity: 0.6;
+}
+
+.zw-corps-forum li.row dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 90px 220px;
+  grid-template-areas: "titre rep dernier" "titre vues dernier";
+  align-items: center;
+  gap: 0 10px;
+  padding: 10px 14px;
+}
+
+.zw-corps-forum dd.dterm {
+  grid-area: titre;
+  min-width: 0;
+}
+
+.zw-corps-forum .topic-title-container {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+}
+
+.zw-corps-forum .topic-title-container > strong {
+  color: var(--zw-accent);
+  font-family: var(--zw-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.zw-corps-forum .topic-title {
+  margin: 0;
+  padding: 0;
+  font-family: var(--zw-texte);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  border: 0;
+}
+
+.zw-corps-forum .topic-title a {
+  color: var(--zw-encre);
+}
+
+.zw-corps-forum .topic-title a:hover {
+  color: var(--zw-accent);
+  text-decoration: none;
+}
+
+.zw-corps-forum .topic-description,
+.zw-corps-forum .topic-author {
+  display: block;
+}
+
+.zw-corps-forum .topic-description {
+  color: var(--zw-doux);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.zw-corps-forum .topic-author,
+.zw-corps-forum .lastpost-infos {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.zw-corps-forum .topic-author strong,
+.zw-corps-forum .lastpost-infos strong {
+  font-family: var(--zw-texte);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.zw-corps-forum dd.dterm .pagination {
+  float: none;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+}
+
+.zw-corps-forum dd.dterm .pagination img {
+  display: none;
+}
+
+.zw-corps-forum dd.posts,
+.zw-corps-forum dd.views {
+  color: var(--zw-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  text-align: left;
+}
+
+.zw-corps-forum dd.posts {
+  grid-area: rep;
+  align-self: end;
+}
+
+.zw-corps-forum dd.views {
+  grid-area: vues;
+  align-self: start;
+}
+
+.zw-corps-forum dd.posts::after {
+  content: " rép.";
+}
+
+.zw-corps-forum dd.views::after {
+  content: " vues";
+}
+
+.zw-corps-forum dd.lastpost {
+  grid-area: dernier;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.zw-corps-forum .lastpost-avatar {
+  flex: none;
+  float: none;
+  margin: 0;
+}
+
+.zw-corps-forum .lastpost-avatar img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.zw-corps-forum .lastpost-infos a img {
+  max-height: 12px;
+  vertical-align: middle;
+}
+
+/* --- 14.4 · Bas de page : saut, lecteurs, modérateurs ------------- */
+
+.zw-corps-forum .vf_jumpbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zw-corps-forum .vf_jumpbox select {
+  font-family: var(--zw-texte);
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.zw-corps-forum .vf_jumpbox .button2 {
+  padding: 7px 14px;
+  color: var(--zw-surface);
+  font-family: var(--zw-mono);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  background: var(--zw-encre);
+  border: 1px solid var(--zw-encre);
+}
+
+.zw-corps-forum .vf_jumpbox .button2:hover {
+  background: var(--zw-accent);
+  border-color: var(--zw-accent);
+}
+
+.zw-corps-forum #info_open {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.zw-corps-forum #info_open .block {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 14px;
+  background: var(--zw-teinte);
+  border: 1px solid var(--zw-trait);
+}
+
+.zw-corps-forum #info_open .h3 {
+  margin: 0 0 8px;
+  padding: 0;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 0;
+}
+
+.zw-corps-forum #info_open .h3 i {
+  display: none;
+}
+
+.zw-corps-forum #info_open p {
+  margin: 0;
+}
+
+/* --- 14.5 · Pages de forum — mobile (≤ 800 px) ------------------- */
+
+@media (max-width: 800px) {
+  .zw-corps-forum li.row dl {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "titre titre" "dernier rep" "dernier vues";
+    gap: 8px 10px;
+  }
+
+  .zw-corps-forum dd.posts,
+  .zw-corps-forum dd.views {
+    display: block;
+    text-align: right;
+  }
+
+  .zw-corps-forum #info_open {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .zw-corps-forum .search-box input {
+    width: 140px;
+  }
+
+  .zw-corps-forum #page-desc:has(.zw-visuel) {
+    min-height: 0;
+    padding-left: 0;
+  }
+
+  .zw-corps-forum #page-desc .zw-visuel {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 160px;
+  }
+}
