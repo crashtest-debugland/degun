@@ -1880,6 +1880,8 @@ body:has(#fa_toolbar) .zw-barre {
   top: 100%;
   right: 0;
   left: auto !important;
+  width: 300px !important;
+  max-width: calc(100vw - 32px) !important;
   margin: 6px 0 0 !important;
 }
 
