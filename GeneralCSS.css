@@ -69,6 +69,7 @@
          15.9°  Effets libres (2)
          15.10°  Dialogues
          15.11°  Effets libres (3)
+   16°  Limite de mots (sujets d'event [300])
 */
 
 /* --- 01° Variables et thèmes jour/nuit --- */
@@ -6256,3 +6257,29 @@ tag {
 @media (prefers-reduced-motion: reduce) {
   trb { animation: none; }
 }
+
+/* --- 16° Limite de mots (sujets d'event [300]) --- */
+
+.qmnp-mots {
+  display: flex;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 20px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.06);
+  border-left: 3px solid #7A1F17;
+  font-size: 13px;
+}
+
+.qmnp-mots > div:last-child { margin-left: auto; text-align: right; }
+
+.qmnp-mots strong { display: block; font-size: 18px; }
+
+.qmnp-mots.est-trop > div:last-child { color: #C4332A; font-weight: 700; }
+
+input[name="post"]:disabled,
+button[name="post"]:disabled { opacity: 0.45; cursor: not-allowed; }
