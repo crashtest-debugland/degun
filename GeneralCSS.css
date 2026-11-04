@@ -17,6 +17,7 @@
          02.12°  Socle — mobile (≤ 800 px)
    03°  Composants communs QMNP
          03.1°  Grain, crochets, photo, statuts et badges
+         03.2°  Aperçu du profil au survol d'un pseudo
    04°  Barre d'outils Forumactif
    05°  En-tête : barre de navigation et bannière
          05.1°  Barre, logo, menu, bouton jour / nuit
@@ -964,6 +965,113 @@ body::after {
 .zw-s-contamine { --zw-c: var(--zw-contamine); }
 
 .zw-s-tombe { --zw-c: var(--zw-tombe); }
+
+/* --- 03.2° Aperçu du profil au survol d'un pseudo --- */
+
+.tooltipster-base .tooltipster-arrow { display: none; }
+
+.tooltipster-default {
+  color: var(--zw-ecran-texte);
+  background: var(--zw-ecran);
+  border: 1px solid var(--zw-ecran-trait);
+  border-top: 3px solid #E0574A;
+  border-radius: 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tooltipster-default .tooltipster-content {
+  padding: 0;
+  font-family: var(--zw-texte);
+  font-size: 14px;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+.main-tooltip .tooltip-content {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+  gap: 2px 14px;
+  padding: 12px;
+}
+
+.main-tooltip .tooltip-content > img {
+  grid-row: 1 / span 3;
+  width: 80px;
+  height: 128px;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.main-tooltip .tooltip-title {
+  font-family: var(--zw-titre);
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.main-tooltip .tooltip-title strong { font-weight: 400; }
+
+.main-tooltip .tooltip-subtitle {
+  color: var(--zw-ecran-doux);
+  font-family: var(--zw-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.main-tooltip .tooltip-counts {
+  align-self: end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--zw-ecran-doux);
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.main-tooltip .tooltip-counts b { color: var(--zw-ecran-texte); font-weight: 400; }
+
+.main-tooltip .tooltip-actions { border-top: 1px solid var(--zw-ecran-trait); }
+
+.main-tooltip .tooltip-actions ul {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 12px;
+  list-style: none;
+}
+
+.main-tooltip .tooltip-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 28px;
+  border: 1px solid var(--zw-ecran-trait);
+}
+
+.main-tooltip .tooltip-actions a:hover { border-color: #E0574A; }
+
+.main-tooltip .tooltip-actions img { max-height: 16px; filter: grayscale(1) invert(0.85); }
+
+.main-tooltip button,
+.main-tooltip .followBtn {
+  margin: 0 12px 10px;
+  padding: 5px 10px;
+  color: #0B0A09;
+  font-family: var(--zw-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--zw-ecran-texte);
+  border: 0;
+  cursor: pointer;
+}
 
 /* --- 04° Barre d'outils Forumactif --- */
 
@@ -4759,9 +4867,11 @@ body#sce_smilies_body option { color: var(--zw-encre); background: var(--zw-surf
 
 .zw-m-rec::after { content: "Off"; }
 
-.zw-m.online .zw-m-rec { color: #E0574A; }
+.zw-m.online .zw-m-rec,
+.zw-rapide-cam .zw-m-rec { color: #E0574A; }
 
-.zw-m.online .zw-m-rec::after { content: "Rec"; }
+.zw-m.online .zw-m-rec::after,
+.zw-rapide-cam .zw-m-rec::after { content: "Rec"; }
 
 .zw-m-qui { flex: 1 1 240px; min-width: 0; }
 
@@ -5132,6 +5242,28 @@ body:has(#fa_toolbar) .zw-m-cote-colle { top: 118px; }
 
 .zw-m .zw-m-liens a:hover img { filter: grayscale(1) invert(1); }
 
+.zw-m .zw-m-liens { flex-wrap: wrap; }
+
+.zw-m-canaux { display: contents; }
+
+.zw-m .zw-m-liens a.zw-m-lien-txt {
+  flex: 1 1 100%;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 28px;
+  padding: 5px 10px;
+  line-height: 1.3;
+  text-align: left;
+  color: var(--zw-ecran-texte) !important;
+  font-family: var(--zw-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.zw-m .zw-m-liens a.zw-m-lien-txt::before { content: "▸ "; margin-right: 4px; color: var(--gn); }
+
 .zw-m-onglets {
   display: flex;
   flex-direction: column;
@@ -5277,6 +5409,35 @@ body:has(#fa_toolbar) .zw-m-cote-colle { top: 118px; }
 /* --- 13.7° Réponse rapide, outils du bas de page --- */
 
 .zw-rapide { margin: 30px 0 24px; text-align: left; }
+
+.zw-rapide.zw-rapide-avec-cam {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 0 20px;
+  align-items: start;
+}
+
+.zw-rapide-avec-cam > :not(.zw-rapide-cam) { grid-column: 2; }
+
+.zw-rapide-cam {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / span 20;
+  width: 200px;
+  height: 320px;
+  overflow: hidden;
+  background: var(--zw-ecran);
+  border: 2px solid var(--zw-ecran-trait);
+}
+
+.zw-rapide-cam img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
 
 .zw-rapide * { text-align: inherit; }
 
@@ -5446,6 +5607,10 @@ body:has(#fa_toolbar) .zw-m-cote-colle { top: 118px; }
 
 @media (max-width: 760px) {
   .zw-sujet .page-title { font-size: 28px; }
+
+  .zw-rapide.zw-rapide-avec-cam { display: block; }
+
+  .zw-rapide-cam { display: none; }
 
   .zw-m-corps { grid-template-columns: minmax(0, 1fr); }
 
