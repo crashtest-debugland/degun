@@ -1,6 +1,6 @@
 /* =============== QMNP — MINI-JEUX ===============
    Feuille séparée : terminal à pirater, rebrancher le courant, fouille,
-   cueillette, pêche, rapports du registre. Le cadenas et les ateliers staff injectent leur propre CSS.
+   cueillette, pêche, rencontre, vote, barre d'actions des sujets, demandes, rapports du registre. Le cadenas et les ateliers staff injectent leur propre CSS.
 
    =============== SOMMAIRE ===============
    00° Commun aux mini-jeux (boîtier, couleurs, voyants, panneaux, résultats)
@@ -29,13 +29,23 @@
    MINI-JEU — PÊCHE
    18° Plan d'eau
    19° Touche et moulinet
+   SUJETS RP — ACTIONS ET DEMANDES
+   20° Barre d'actions
+   21° Demande de mini-jeu
+   MINI-JEU — RENCONTRE
+   22° Scène et choix
+   23° Combat
+   24° Fuite
+   25° Cachette
+   VOTE DÉMOCRATIQUE
+   26° Vote et camembert
 */
 
 /* --- 00° Commun aux mini-jeux --- */
-.qmnp-term,.qmnp-circuit,.qmnp-fouille,.qmnp-cueillette,.qmnp-peche{--mj-on:#e9a83b;--mj-rouge:#c4392d;margin:1em auto;box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 4px 14px rgba(0,0,0,.35)}
-.qmnp-term,.qmnp-circuit,.qmnp-fouille,.qmnp-cueillette,.qmnp-peche,.qf-crochet{background:linear-gradient(#5a5047,#3b342e)}
-.qmnp-circuit,.qmnp-fouille,.qmnp-cueillette,.qmnp-peche,.qf-crochet{--mj-fond:#2b2622;--mj-case:#36302a;--mj-txt:#e6dccf;--mj-dim:#a89a88;padding:12px 14px;border-radius:10px;color:var(--mj-txt);font:12px/1.4 ui-monospace,monospace}
-.qmnp-term:not(.qt-on),.qmnp-circuit:not(.qc-pret),.qmnp-fouille:not(.qf-pret),.qmnp-cueillette:not(.qg-pret),.qmnp-peche:not(.qp-pret),.qmnp-rapport:not([data-ok]){display:none}
+.qmnp-term,.qmnp-circuit,.qmnp-fouille,.qmnp-cueillette,.qmnp-peche,.qmnp-rencontre,.qmnp-vote{--mj-on:#e9a83b;--mj-rouge:#c4392d;margin:1em auto;box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 4px 14px rgba(0,0,0,.35)}
+.qmnp-term,.qmnp-circuit,.qmnp-fouille,.qmnp-cueillette,.qmnp-peche,.qmnp-rencontre,.qmnp-vote,.qf-crochet{background:linear-gradient(#5a5047,#3b342e)}
+.qmnp-circuit,.qmnp-fouille,.qmnp-cueillette,.qmnp-peche,.qmnp-rencontre,.qmnp-vote,.qf-crochet{--mj-fond:#2b2622;--mj-case:#36302a;--mj-txt:#e6dccf;--mj-dim:#a89a88;padding:12px 14px;border-radius:10px;color:var(--mj-txt);font:12px/1.4 ui-monospace,monospace}
+.qmnp-term:not(.qt-on),.qmnp-circuit:not(.qc-pret),.qmnp-fouille:not(.qf-pret),.qmnp-cueillette:not(.qg-pret),.qmnp-peche:not(.qp-pret),.qmnp-rencontre:not(.qr-pret),.qmnp-vote:not(.qv-pret),.qmnp-demande:not([data-ok]),.qmnp-rapport:not([data-ok]){display:none}
 .qc-tete,.qc-pied,.qf-tete,.qf-pied{display:flex;justify-content:space-between;align-items:center;gap:10px;letter-spacing:.12em;text-transform:uppercase}
 .qc-tete,.qf-tete{margin-bottom:10px}
 .qc-pied,.qf-pied{margin-top:10px;font-size:11px;color:#cbbfae}
@@ -45,7 +55,7 @@
 .qmnp-circuit .qc-case,.qmnp-fouille .qf-piece{appearance:none;min-width:0;margin:0;border:0;border-radius:4px;background:var(--mj-case);color:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);font:inherit;cursor:pointer}
 .qmnp-circuit .qc-case:hover,.qmnp-fouille .qf-piece:hover:not(:disabled){background:#41392f}
 .qc-recompense,.qf-msg{margin-top:10px;padding:12px 14px;border-radius:6px;background:var(--mj-fond);color:var(--mj-on);font:18px/1.15 'VT323',ui-monospace,monospace;text-shadow:0 0 4px rgba(233,168,59,.5)}
-.qc-pied button,.qmnp-fouille button:not(.qf-piece),.qmnp-cueillette .qf-msg button,.qmnp-peche .qf-msg button{margin-left:6px;padding:4px 10px;border:1px solid currentColor;border-radius:3px;background:none;color:inherit;font:inherit;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.qc-pied button,.qmnp-fouille button:not(.qf-piece),.qmnp-cueillette .qf-msg button,.qmnp-peche .qf-msg button,.qmnp-rencontre .qf-msg button,.qmnp-vote .qf-msg button{margin-left:6px;padding:4px 10px;border:1px solid currentColor;border-radius:3px;background:none;color:inherit;font:inherit;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 @keyframes qt-clign{50%{opacity:0}}
 
 /* --- 01° Boîtier --- */
@@ -192,3 +202,90 @@
 @keyframes qp-bon{50%{background:#fff1d2}}
 @keyframes qp-flotte{50%{transform:translateY(4px)}}
 @keyframes qp-mord{50%{transform:translateY(12px) scale(.85)}}
+
+/* --- 20° Barre d'actions --- */
+.qmnp-actions{max-width:600px;margin:0 auto 1em;padding:8px 10px;border-radius:10px;background:linear-gradient(#5a5047,#3b342e);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 4px 14px rgba(0,0,0,.35);color:#e6dccf;font:12px/1.4 ui-monospace,monospace}
+.qx-barre,.qx-choix{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.qx-choix{margin-top:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,.35)}
+.qx-tag,.qx-choix span{margin-right:4px;color:#cbbfae;letter-spacing:.12em;text-transform:uppercase}
+.qx-barre button,.qx-choix button,.qx-form button{padding:6px 12px;border:1px solid #e9a83b;border-radius:3px;background:rgba(0,0,0,.3);color:#e9a83b;font:inherit;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.qx-barre button[aria-pressed="true"],.qx-choix button[aria-pressed="true"]{background:#e9a83b;color:#2b2622}
+.qx-barre .qx-demande{margin-left:auto;border-color:#a89a88;color:#cbbfae}
+.qx-zone>div{margin:10px 0 2px;box-shadow:none}
+
+/* --- 21° Demande de mini-jeu --- */
+.qx-form{display:grid;gap:10px;margin-top:10px;padding:12px;border-radius:6px;background:#2b2622}
+.qx-form label{display:grid;gap:4px;color:#cbbfae;letter-spacing:.1em;text-transform:uppercase}
+.qx-form select,.qx-form textarea{box-sizing:border-box;width:100%;padding:8px;border:1px solid #4a423a;border-radius:4px;background:#36302a;color:#e6dccf;font:14px/1.4 system-ui,sans-serif;letter-spacing:0;text-transform:none}
+.qx-note,.qx-merci{margin:0;color:#a89a88}
+.qx-merci{margin-top:10px;padding:12px;border-radius:6px;background:#2b2622;color:#e9a83b}
+.qx-envoi{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.qx-form button:disabled{opacity:.5;cursor:default}
+.qx-etat{color:#e98a7a}
+.qmnp-demande{max-width:640px;margin:1em auto;padding:10px 14px;border-left:4px solid #a89a88;border-radius:4px;background:#1f1b17;color:#d9cdb8;font:18px/1.2 'VT323',ui-monospace,monospace}
+.qmnp-demande b{display:block;font-weight:400;color:#e9a83b;letter-spacing:.06em;text-transform:uppercase}
+.qmnp-demande span{color:#a89a88}
+.qmnp-demande p{margin:6px 0 0;font:14px/1.5 system-ui,sans-serif}
+
+/* --- 22° Scène et choix --- */
+.qmnp-rencontre{position:relative;max-width:600px;text-align:left}
+.qr-scene{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:240px;padding:16px;overflow:hidden;border-radius:6px;background:radial-gradient(ellipse at 50% 30%,#3a2b26,var(--mj-fond) 75%);box-shadow:inset 0 0 30px rgba(0,0,0,.7);outline:none;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.qr-texte{margin:0;padding:0 12px;color:#cbbfae;text-align:center;letter-spacing:.06em}
+.qr-texte b{color:var(--mj-on);font-weight:400}
+.qr-choix{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.qmnp-rencontre .qr-choix button,.qmnp-rencontre .qr-tenir{padding:10px 16px;border:1px solid var(--mj-on);border-radius:3px;background:rgba(0,0,0,.35);color:var(--mj-on);font:inherit;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.qr-etat{position:absolute;z-index:2;left:8px;top:8px;padding:2px 6px;border-radius:3px;background:rgba(0,0,0,.55);color:var(--mj-dim);letter-spacing:.1em;text-transform:uppercase}
+.qr-indemne{color:#9fe0a4}
+.qr-egratigne{color:var(--mj-on)}
+.qr-blesse{color:var(--mj-rouge)}
+.qr-mal{animation:qf-rate .3s}
+
+/* --- 23° Combat --- */
+.qr-combat{cursor:crosshair}
+.qr-cible{position:relative;width:90px;height:90px}
+.qr-z{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 40%,#6d7a5e,#2d3326 70%);box-shadow:0 0 0 3px rgba(0,0,0,.4)}
+.qr-anneau{position:absolute;inset:-4px;border:3px solid var(--mj-on);border-radius:50%;box-shadow:0 0 10px rgba(233,168,59,.6);transform:scale(2.5)}
+.qr-bon .qr-z{animation:qr-coup .3s}
+.qr-mal .qr-z{background:radial-gradient(circle at 50% 40%,#9b3a2f,#3a1a15 70%)}
+@keyframes qr-coup{50%{transform:scale(.8);filter:brightness(1.8)}}
+
+/* --- 24° Fuite --- */
+.qr-fuite{padding:0;cursor:pointer}
+.qr-rue{position:absolute;inset:0;background:linear-gradient(90deg,transparent calc(33.33% - 1px),rgba(255,255,255,.08) calc(33.33% - 1px) 33.33%,transparent 33.33% calc(66.66% - 1px),rgba(255,255,255,.08) calc(66.66% - 1px) 66.66%,transparent 66.66%)}
+.qr-moi,.qr-obst{position:absolute;transform:translateX(-50%);border-radius:4px;text-align:center;letter-spacing:.06em;text-transform:uppercase}
+.qr-moi{bottom:16px;width:26px;height:26px;border-radius:50%;background:var(--mj-on);box-shadow:0 0 10px rgba(233,168,59,.7);transition:left .12s}
+.qr-obst{top:-10%;width:26%;padding:4px 0;background:#4a423a;color:#cbbfae;font-size:.85em}
+.qr-zz{background:#4d5a3f;color:#dfe8cf}
+.qr-heurt{background:var(--mj-rouge);color:#fff}
+.qr-fleche{position:absolute;bottom:14px;color:var(--mj-dim);font-size:1.2em}
+.qr-g{left:10px}
+.qr-d{right:10px}
+
+/* --- 25° Cachette --- */
+.qr-guetteur{padding:8px 14px;border-radius:3px;background:rgba(0,0,0,.35);color:#9fe0a4;letter-spacing:.1em;text-transform:uppercase}
+.qr-alerte{color:var(--mj-on)}
+.qr-regarde{color:#fff;background:var(--mj-rouge)}
+.qr-jauges{display:flex;gap:16px;color:var(--mj-dim);letter-spacing:.1em;text-transform:uppercase}
+.qr-jauges span{display:grid;gap:4px}
+.qr-jauges i{display:block;width:110px;height:8px;border-radius:4px;background:var(--mj-case)}
+.qr-jauges b{display:block;height:100%;border-radius:4px;background:var(--mj-on)}
+.qr-bruit b{width:0;background:var(--mj-rouge)}
+.qmnp-rencontre .qr-tenir.qr-appui{background:var(--mj-on);color:#2b2622}
+
+/* --- 26° Vote et camembert --- */
+.qmnp-vote{--qv-pour:#6fbf73;--qv-contre:#c0392b;--qv-abstention:#8a8076;position:relative;max-width:600px;text-align:left}
+.qv-question{margin:0 0 12px;padding:10px 12px;border-radius:6px;background:var(--mj-fond);color:var(--mj-txt);letter-spacing:.04em}
+.qv-choix{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:16px;border-radius:6px;background:var(--mj-fond)}
+.qmnp-vote .qv-choix button{flex:1 1 120px;padding:12px 10px;border:1px solid currentColor;border-radius:3px;background:rgba(0,0,0,.35);font:inherit;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.qmnp-vote .qv-choix .qv-pour{color:var(--qv-pour)}
+.qmnp-vote .qv-choix .qv-contre{color:#e8705f}
+.qmnp-vote .qv-choix .qv-abstention{color:#cbbfae}
+.qmnp-vote .qv-choix button:disabled{opacity:.5;cursor:default}
+.qv-resultat{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:10px;padding:16px;border-radius:6px;background:var(--mj-fond)}
+.qv-camembert{flex:none;width:120px;height:120px;border-radius:50%;box-shadow:0 0 0 3px rgba(0,0,0,.4)}
+.qv-legende{flex:1 1 200px;display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.qv-legende li{display:grid;gap:2px;padding-left:12px;border-left:4px solid var(--qv-pour)}
+.qv-legende .qv-contre{border-color:var(--qv-contre)}
+.qv-legende .qv-abstention{border-color:var(--qv-abstention)}
+.qv-legende b{font-weight:400;color:var(--mj-txt);letter-spacing:.06em;text-transform:uppercase}
+.qv-legende span{color:var(--mj-dim);font-size:.9em}
