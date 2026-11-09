@@ -41,7 +41,7 @@ html #FAM::before {
 }
 
 html #FAM::after {
-  content: "MISTRAL · R2";
+  content: "ARK";
   position: absolute;
   bottom: 13px;
   left: 50%;
@@ -264,6 +264,41 @@ html #FAM .qmnp-onglet-fleche:hover:not(:disabled) {
 html #FAM .qmnp-onglet-fleche:disabled {
   color: var(--zw-trait);
   cursor: default;
+}
+
+html #FAM-tabs.qmnp-tri {
+  cursor: grabbing;
+  user-select: none;
+}
+
+html #FAM .FAM-tab.qmnp-glisse {
+  opacity: 0.6;
+  outline: 2px dashed var(--zw-accent);
+  outline-offset: -2px;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-tab.qmnp-glisse {
+  outline-color: var(--rt-encre);
+}
+
+html #FAM .FAM-spoiler > dt,
+html #FAM .FAM-hidecode > dt,
+html #FAM .FAM-spoiler_title {
+  cursor: pointer !important;
+}
+
+html #FAM .FAM-spoiler:not(.qmnp-ouvert) > dd,
+html #FAM .FAM-hidecode:not(.qmnp-ouvert) > dd,
+html #FAM .FAM-spoiler_wrap:not(.qmnp-ouvert) > .FAM-spoiler_content {
+  display: none;
+}
+
+html #FAM .FAM-spoiler_content {
+  display: block;
+}
+
+html #FAM .FAM-spoiler_content::after {
+  display: none;
 }
 
 html #FAM #FAM-tab-add {
@@ -1074,64 +1109,13 @@ html[data-qmnp-tel="retro"] #FAM {
   color: var(--rt-encre);
   font-family: var(--rt-pixel);
   font-size: 19px;
-  width: 320px;
-  padding: 26px 0 28px;
-  background: var(--rt-ecran);
-  border: 16px solid var(--rt-boitier);
-  border-bottom-width: 40px;
-  overflow: hidden;
-  border-radius: 34px 34px 56px 56px;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--zw-trait), 0 22px 60px var(--zw-ombre, rgba(0, 0, 0, 0.4));
-}
-
-html[data-qmnp-tel="retro"] #FAM::before,
-html[data-qmnp-tel="retro"] #FAM::after {
-  position: absolute;
-  bottom: 0;
-  z-index: 3;
-  width: 50%;
-  height: 28px;
-  margin: 0;
-  padding: 0 12px;
-  box-sizing: border-box;
-  color: var(--rt-encre);
-  background: var(--rt-ecran);
-  border: 0;
-  border-top: 2px solid var(--rt-encre);
-  border-radius: 0;
-  font-family: var(--rt-pixel);
-  font-size: 19px;
-  line-height: 26px;
-  letter-spacing: 0;
-  top: auto;
-  right: auto;
-  transform: none;
-  box-shadow: none;
-  opacity: 1;
-  pointer-events: none;
-}
-
-html[data-qmnp-tel="retro"] #FAM::before {
-  content: "Options";
-  left: 0;
-}
-
-html[data-qmnp-tel="retro"] #FAM::after {
-  content: "Retour";
-  left: 50%;
-  text-align: right;
 }
 
 html[data-qmnp-tel="retro"] #FAM #zw-fam-signal {
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: 0;
-  height: 26px;
-  padding: 0 10px;
   color: var(--rt-encre);
   background: var(--rt-ecran);
   border-bottom: 1px dashed var(--rt-pale);
+  border-radius: 8px 8px 0 0;
   font-family: var(--rt-pixel);
   font-size: 18px;
   font-weight: 400;
@@ -1460,27 +1444,34 @@ html[data-qmnp-tel="retro"] #FAM-content {
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-msg {
-  padding: 8px 12px;
-  border-bottom: 1px dashed var(--rt-pale);
+  padding: 6px 12px;
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-msg-avatar {
   display: none;
 }
 
-html[data-qmnp-tel="retro"] #FAM .FAM-msg-box,
-html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-box {
+html[data-qmnp-tel="retro"] #FAM .FAM-msg-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   float: none;
   width: 100%;
   padding: 0;
 }
 
+html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-box {
+  align-items: flex-end;
+  padding: 0;
+}
+
 html[data-qmnp-tel="retro"] #FAM .FAM-msg-name {
+  width: auto;
   height: auto;
   padding: 0;
   color: var(--rt-encre);
   font-family: var(--rt-pixel);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1493,36 +1484,29 @@ html[data-qmnp-tel="retro"] #FAM .FAM-msg-name * {
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-msg-name::before {
-  content: "< ";
+  content: "▸ ";
 }
 
-html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-name {
-  display: block;
-  text-align: right;
-}
-
-html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-name::before {
-  content: "MOI >";
-}
-
-html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-name > * {
-  display: none;
-}
-
-html[data-qmnp-tel="retro"] #FAM .FAM-msg-content,
-html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-content {
+html[data-qmnp-tel="retro"] #FAM .FAM-msg-content {
   float: none;
-  max-width: 100%;
+  max-width: 86%;
   min-height: 0;
-  margin: 2px 0;
-  padding: 0;
+  margin: 2px 3px 5px 0;
+  padding: 5px 9px;
   color: var(--rt-encre);
   background: transparent;
-  border: 0;
+  border: 2px solid var(--rt-encre);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 var(--rt-pale);
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-content {
-  text-align: right;
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-msg-content a {
+  color: var(--rt-ecran);
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-msg-content::before {
@@ -1535,17 +1519,14 @@ html[data-qmnp-tel="retro"] #FAM .FAM-msg-text {
   line-height: 1.15;
 }
 
-html[data-qmnp-tel="retro"] #FAM .FAM-msg-text img {
-  filter: grayscale(1) contrast(1.4);
-  mix-blend-mode: multiply;
-  image-rendering: pixelated;
-}
-
 html[data-qmnp-tel="retro"] #FAM .FAM-msg-date,
 html[data-qmnp-tel="retro"] #FAM .zw-fam-statut {
+  width: auto;
+  height: auto;
   color: var(--rt-pale);
   font-family: var(--rt-pixel);
   font-size: 16px;
+  line-height: 1.2;
   font-style: normal;
   opacity: 1;
 }
@@ -1570,32 +1551,70 @@ html[data-qmnp-tel="retro"] #FAM .FAM-msg-error .FAM-msg-content {
   text-decoration: line-through;
 }
 
-html[data-qmnp-tel="retro"] #FAM .FAM-codebox,
-html[data-qmnp-tel="retro"] #FAM .FAM-spoiler {
-  color: var(--rt-encre);
+html[data-qmnp-tel="retro"] #FAM .FAM-codebox {
+  margin: 6px 0;
+  padding: 0;
+  color: inherit;
   background: transparent;
-  border: 0;
-  border-left: 2px solid var(--rt-pale);
+  border: 1px dashed currentColor;
   text-align: left;
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-codebox cite,
-html[data-qmnp-tel="retro"] #FAM .FAM-codebox dt,
-html[data-qmnp-tel="retro"] #FAM .FAM-spoiler dt {
-  color: var(--rt-pale);
+html[data-qmnp-tel="retro"] #FAM .FAM-codebox dt {
+  display: block;
+  margin: 0;
+  padding: 0 6px;
+  color: var(--rt-ecran);
+  background: var(--rt-encre);
   font-family: var(--rt-pixel);
-  font-size: 16px;
-  border-bottom: 1px dashed var(--rt-pale);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  border: 0;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-codebox cite,
+html[data-qmnp-tel="retro"] #FAM .FAM-my-msg .FAM-codebox dt {
+  color: var(--rt-encre);
+  background: var(--rt-ecran);
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-codebox cite a,
 html[data-qmnp-tel="retro"] #FAM .FAM-codebox dt a {
-  color: var(--rt-pale) !important;
+  color: inherit !important;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-codebox cite::before,
+html[data-qmnp-tel="retro"] #FAM .FAM-codebox > dt::before {
+  content: none;
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-spoiler > dt::before,
+html[data-qmnp-tel="retro"] #FAM .FAM-hidecode > dt::before {
+  content: "+ ";
+  font-family: inherit;
+}
+
+html[data-qmnp-tel="retro"] #FAM .qmnp-ouvert > dt::before {
+  content: "- ";
+}
+
+html[data-qmnp-tel="retro"] #FAM .FAM-codebox dd,
+html[data-qmnp-tel="retro"] #FAM blockquote.FAM-codebox > div {
+  margin: 0;
+  padding: 3px 6px;
 }
 
 html[data-qmnp-tel="retro"] #FAM .FAM-codebox code {
+  max-height: 86px;
+  margin: 0;
+  padding: 0;
   font-family: var(--rt-pixel);
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 1.1;
+  word-break: break-all;
 }
 
 html[data-qmnp-tel="retro"] #FAM-new-msg-notif {
@@ -1617,7 +1636,7 @@ html[data-qmnp-tel="retro"] #FAM-new-msg-divider::after {
 }
 
 html[data-qmnp-tel="retro"] #FAM-actions {
-  border-radius: 0;
+  border-radius: 0 0 8px 8px;
   background: var(--rt-ecran);
   border-top: 2px solid var(--rt-encre);
 }
@@ -1799,19 +1818,5 @@ html[data-qmnp-tel="retro"] #FAM .FAM-toolbar-button:hover {
 @media (prefers-reduced-motion: reduce) {
   html[data-qmnp-tel="retro"] #FAM .zw-fam-statut[data-etat="attente"] {
     animation: none;
-  }
-}
-
-@media (max-width: 800px) {
-  html[data-qmnp-tel="retro"] #FAM[data-hidden="false"] {
-    width: 100%;
-    padding: 0;
-    border-width: 0;
-    border-radius: 0;
-  }
-
-  html[data-qmnp-tel="retro"] #FAM::before,
-  html[data-qmnp-tel="retro"] #FAM::after {
-    display: none;
   }
 }
